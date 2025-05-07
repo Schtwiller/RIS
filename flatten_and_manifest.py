@@ -6,7 +6,7 @@ import csv, shutil, uuid
 from pathlib import Path
 
 RAW      = Path("data/raw")
-MANIFEST = Path("data/manifests/labels.csv")
+MANIFEST = Path("data/raw/labels.csv")
 MANIFEST.parent.mkdir(parents=True, exist_ok=True)
 
 rows = []
