@@ -1,7 +1,14 @@
 # 🔍 Reverse Image Search (Identity‑Docs) &nbsp;—&nbsp; **Working README @ Milestone #1**
 
-> **Status**: ✔ Repo scaffolded   ✔ Flat‑bucket data scheme   ✔ `dataset_builder.py`  
-> **Next up**: pre‑processing transforms & training loop _(see [Roadmap](#roadmap))_
+
+> **Status**:  
+> ✔ Repo scaffolded  
+> ✔ Flat-bucket data scheme  
+> ✔ `dataset_builder.py`  
+> ✔ Pre-processing & transforms (`transforms.py` + `IDDataset`)  
+> ✔ Unit tests for dataset & transforms  
+> ✔ Starter training script (`train.py`)  
+> **Next up**: Baseline embedding model & metric-learning losses _(see [Roadmap](#roadmap))_
 
 ---
 
@@ -83,11 +90,13 @@ python src/datasets/dataset_builder.py
 
 ## 6 ▪ Roadmap
 
-| Phase                         | Target                                                                         | ETA  |
-| ----------------------------- | ------------------------------------------------------------------------------ | ---- |
-| **Pre‑processing pipeline**   | `transforms.py` with Albumentations & TorchVision, plus `IDDataset` dataloader | next |
-| Baseline embedding model      | ResNet‑50 + GeM head + Triplet loss                                            | —    |
-| Training loop                 | PyTorch Lightning / bare PyTorch + TensorBoard logs                            | —    |
-| Offline FAISS index builder   | IVF‑PQ snapshot + search CLI                                                   | —    |
-| Extractor micro‑service       | FastAPI + Torch‑scripted model                                                 | —    |
-| Vector‑DB (Qdrant) & live API | `/search` endpoint wired to online index                                       | —    |
+| Step                                          | Target                                                      | Target Date | Status      |
+|-----------------------------------------------|-------------------------------------------------------------|-------------|-------------| 
+| **Prototype Dataset Collection and Cleaning** | 300+ images                                                 | 5/7/2025    | ✅ Done      |
+| **Pre-processing pipeline**                   | `transforms.py` + `IDDataset` dataloader                    | 5/14/2025   | In Progress |
+| **Baseline embedding model**                  | ResNet-50 + GeM head + Triplet loss                         | 5/21/2025   | next        |
+| **Training loop (metric-learning)**           | PyTorch Lightning / bare PyTorch + TensorBoard/W\&B logging | 5/28/2025   | pending     |
+| **Offline FAISS index builder**               | IVF-PQ snapshot + search CLI                                | 6/4/2025    | pending     |
+| **Extractor micro-service**                   | FastAPI + Torch-scripted embedding API                      | pending     | pending     |
+| **Vector-DB (Qdrant) & live API**             | `/search` endpoint wired to online index                    | pending     | pending     |
+
