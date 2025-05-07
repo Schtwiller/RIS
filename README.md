@@ -1,116 +1,93 @@
-# Document Reverse Image Search — Prototype README
-*(last updated: 2025-05-01)*
+# 🔍 Reverse Image Search (Identity‑Docs) &nbsp;—&nbsp; **Working README @ Milestone #1**
 
-## 1 . What is this?
-A minimal, end‑to‑end pipeline that:
-
-1. **Ingests** document images through a FastAPI micro‑service (`src/ingestion`).
-2. **Cleans & splits** them into `train/ val/ test` using `scripts/make_dataset.py`.
-3. **Trains** a CNN‑based classifier / embedder (PyTorch + Lightning).
-4. **Builds** Approximate Nearest‑Neighbour (ANN) indexes (FAISS/HNSW) per document type for similarity search.
-5. **Retrains & re‑indexes** automatically via a Prefect flow (`src/pipeline`).
-
-Everything is modular—swap backbones or ANN libraries by editing a single YAML config.
+> **Status**: ✔ Repo scaffolded   ✔ Flat‑bucket data scheme   ✔ `dataset_builder.py`  
+> **Next up**: pre‑processing transforms & training loop _(see [Roadmap](#roadmap))_
 
 ---
 
-## 2 . Repo Layout (high‑level)
+## 1 ▪ Why we’re building this
 
-```text
-doc-retrieval/
-├── data/
-│   ├── raw/          # uploads land here via FastAPI
-│   ├── processed/    # train|val|test images
-│   └── indexes/      # *.faiss + *.pkl per doc type
-├── notebooks/        # quick EDA / experiments
-├── scripts/          # one‑off helpers (dataset, search, migrate_official)
-├── src/
-│   ├── configs/          # Hydra YAMLs
-│   ├── ingestion/        # FastAPI app
-│   ├── datasets/         # PyTorch Dataset + transforms
-│   ├── models/           # backbone + embedder
-│   ├── train/            # Lightning training CLI
-│   ├── retrieve/         # index builder & search helpers
-│   └── pipeline/         # Prefect flow for periodic retrain
-├── tests/            # pytest suites
-├── environment.yml   # conda env spec
-└── README.md         # this file
+Identity documents (passports, driver’s licenses, national IDs) share rigid visual structure yet vary wildly in wear, capture devices, and lighting.  
+We need a **reverse‑image‑search pipeline** that:
+
+* embeds an incoming photo into a compact vector
+* finds near‑duplicates / fraud attempts in a corpus of hundreds‑of‑thousands of docs
+* scales from a developer laptop to a GPU‑backed cloud service
+
+---
+
+## 2 ▪ What’s working right now
+
+| ✅ Component | Notes |
+|--------------|-------|
+| **Repo structure** | `src/`, `data/`, `tests/`, etc. (see [Directory Map](#directory-map)). |
+| **Flat data bucket** | All images live in `data/raw/` with a single `labels.csv` (filename, doc_type, country…) as the truth table. |
+| **Dataset builder** | `python src/datasets/dataset_builder.py` → creates `data/processed/{train,val,test}` with stratified 70/15/15 split + manifest files. |
+
+No environment variables or CLI flags needed—paths and split ratios are hard‑coded for zero‑friction.
+
+---
+
+## 3 ▪ Directory Map
+
+```markdown
+reverse_image_search/
+├─ data/
+│ ├─ raw/ ← flat bucket of originals + labels.csv
+│ └─ processed/ ← auto‑generated splits (immutable)
+├─ src/
+│ ├─ datasets/
+│ │ ├─ dataset_builder.py ← implemented
+│ │ └─ (transforms.py, init.py) ← next step
+│ └─ … (models/, inference/, etc. stubbed)
+└─ README.md ← you are here
+
 ```
 
----
+## 4 ▪ Data Workflow (so far)
 
-## 3 . Quick Start
+1. **Drop images**  
+   Put your `.jpg/.png` files in `data/raw/` and add rows to `labels.csv`:
 
-1. **Create the conda environment**
+   ```csv
+   filename,doc_type,country
+   IMG_001.jpg,passport,US
+   ABC123.png,driver_license,CA
+
+2. **Build Splits**
    ```bash
-   conda env create -f environment.yml
-   conda activate doc-retrieval
+   python src/datasets/dataset_builder.py
    ```
-
-2. **Start the ingestion API** (new uploads land in `data/raw/`)
-   ```bash
-   uvicorn src.ingestion.listener:app --host 0.0.0.0 --port 8000
-   # POST an image:
-   curl -X POST -F "img=@my_id.jpg" http://localhost:8000/upload
+   Creates:
+   ```markdown
+   data/processed/
+   ├─ train/.../_manifest.json
+   ├─ val/.../_manifest.json
+   ├─ test/.../_manifest.json
+   └─ split.json    # {"train":1234,"val":264,"test":266,…}
+   
    ```
-
-3. **Build prototype dataset & splits**
-   ```bash
-   python scripts/make_dataset.py --src data/raw --out data/processed --size 512
-   ```
-
-4. **Train the model**
-   ```bash
-   python -m src.train.train_cli train.yaml   # creates checkpoints/cnn_cls.pt
-   ```
-
-5. **Build ANN index (per document type)**
-   ```bash
-   python scripts/build_index.py --ckpt checkpoints/doc_embedder.pt                                      --img-dir data/processed/train/passport                                      --out data/indexes/passport.faiss
-   ```
-
-6. **Run a similarity‑search demo**
-   ```bash
-   python scripts/search_similar.py --image query.jpg --k 5
-   ```
-
-7. *(Optional)* **Schedule periodic retraining**
-   ```bash
-   prefect deployment apply src/pipeline/retrain_flow.py
-   ```
-
----
-
-## 4 . Configuration
-
-- **Hydra** YAMLs live in `src/configs/`; change backbone (`resnet50`, `vit_b_16`, …), embedding dim, batch size, or ANN type here.
-- Thresholds for the Prefect flow (`THRESHOLD` new images before retrain) are in `src/pipeline/retrain_flow.py`.
-
----
-
-## 5 . Testing
-
+## 5 ▪ Usage Cheatsheet (so far)
 ```bash
-pytest -q
+# clone & install deps (conda / venv)
+git clone <repo>
+cd reverse_image_search
+pip install -r requirements.txt   # pandas, scikit‑learn, etc.
+
+# build dataset
+python src/datasets/dataset_builder.py
+
 ```
-- `tests/test_ingestion.py`    FastAPI upload works & file stored  
-- `tests/test_dataset.py`      Dataset/augmentations output correct shapes  
-- `tests/test_search.py`       Index round‑trip returns self‑match at rank 1
 
----
+✅ Done: {'train': 700, 'val': 150, 'test': 150, 'created': '2025‑05‑07T15:42:00'}
 
-## 6 . Troubleshooting
+## 6 ▪ Roadmap
 
-| Symptom | Fix |
-|---------|-----|
-| _CUDA out of memory_ during training | Reduce `batch_size` in `train.yaml` or switch to CPU (`device=cpu`). |
-| _Index build slow_ | Use FAISS IVF+PQ (`metric: ip`, `index_type: ivf_pq`) in config. |
-| _Uploads 400 error_ | Ensure `Content‑Type: multipart/form-data` and field name `img`. |
-
----
-
-## 7 . Next Steps
-
-1. Fine‑tune on real, cleared data once available.  
-2. Add OCR/text embeddings for hybrid search.  
-3. Deploy container (`Dockerfile`) behind a secure gateway.
+| Phase                         | Target                                                                         | ETA  |
+| ----------------------------- | ------------------------------------------------------------------------------ | ---- |
+| **Pre‑processing pipeline**   | `transforms.py` with Albumentations & TorchVision, plus `IDDataset` dataloader | next |
+| Baseline embedding model      | ResNet‑50 + GeM head + Triplet loss                                            | —    |
+| Training loop                 | PyTorch Lightning / bare PyTorch + TensorBoard logs                            | —    |
+| Offline FAISS index builder   | IVF‑PQ snapshot + search CLI                                                   | —    |
+| Extractor micro‑service       | FastAPI + Torch‑scripted model                                                 | —    |
+| Vector‑DB (Qdrant) & live API | `/search` endpoint wired to online index                                       | —    |
