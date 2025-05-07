@@ -1,6 +1,7 @@
 # src/datasets/__init__.py
 from pathlib import Path
 import json
+import numpy as np
 from PIL import Image
 from torch.utils.data import Dataset
 
