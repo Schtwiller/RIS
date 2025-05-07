@@ -1,6 +1,6 @@
 from pathlib import Path
 
-RAW = Path("data/raw")
+RAW = Path("../../data/raw")
 to_delete = []
 all_files = list(RAW.glob("*.*"))
 print(len(all_files))

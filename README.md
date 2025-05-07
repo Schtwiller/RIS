@@ -50,9 +50,9 @@ reverse_image_search/
    Put your `.jpg/.png` files in `data/raw/` and add rows to `labels.csv`:
 
    ```csv
-   filename,doc_type,country
-   IMG_001.jpg,passport,US
-   ABC123.png,driver_license,CA
+   filename,doc_type
+   IMG_001.jpg,passport
+   ABC123.png,driver_license
 
 2. **Build Splits**
    ```bash
@@ -70,7 +70,7 @@ reverse_image_search/
 ## 5 ▪ Usage Cheatsheet (so far)
 ```bash
 # clone & install deps (conda / venv)
-git clone <repo>
+git clone reverse-image-search-model
 cd reverse_image_search
 pip install -r requirements.txt   # pandas, scikit‑learn, etc.
 
