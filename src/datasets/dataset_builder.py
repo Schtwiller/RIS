@@ -16,15 +16,15 @@ import os
 import shutil
 from datetime import datetime, timezone
 from pathlib import Path
-
 import pandas as pd
+from src.config import RAW_DATA_PATH, PROCESSED_DATA_PATH, TRAIN_VAL_SPLIT
 from sklearn.model_selection import train_test_split
 
 # ─── CONFIG (hard‑coded paths) ──────────────────────────────────────────────────
-RAW_DIR = Path(__file__).parents[2] / "data" / "raw"
-OUT_DIR = Path(__file__).parents[2] / "data" / "processed"
-TRAIN_RATIO = 0.7
-VAL_RATIO = 0.15
+RAW_DIR = RAW_DATA_PATH
+OUT_DIR = PROCESSED_DATA_PATH
+TRAIN_RATIO = TRAIN_VAL_SPLIT
+VAL_RATIO = (1 - TRAIN_RATIO) / 2
 SEED = 1337
 LINK_INSTEAD_OF_COPY = False  # set True to hard-link instead of copy
 # ────────────────────────────────────────────────────────────────────────────────

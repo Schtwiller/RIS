@@ -14,15 +14,20 @@ import numpy as np
 import cv2
 import random
 
+from src.config import IMAGE_SIZE, AUGMENTATION
+
 # ─── Config ────────────────────────────────────────────────────────────────────
-IMG_SIZE = 224
-MEAN = (0.485, 0.456, 0.406)
-STD  = (0.229, 0.224, 0.225)
+MEAN = AUGMENTATION["mean"]
+STD  = AUGMENTATION["std"]
+ROTATE_LIMIT = AUGMENTATION["rotate_limit"]
+CONTRAST_LIMIT = AUGMENTATION["contrast_limit"]
+ELASTIC_P = AUGMENTATION["elastic_p"]
+NOISE_P = AUGMENTATION["noise_p"]
 # ────────────────────────────────────────────────────────────────────────────────
 
-def _train_augs(rotation_limit=5, contrast_limit=0.2, elastic_p=0.2, noise_p=0.3):
+def _train_augs(rotation_limit=ROTATE_LIMIT, contrast_limit=CONTRAST_LIMIT, elastic_p=ELASTIC_P, noise_p=NOISE_P):
     return Compose([
-        Resize(IMG_SIZE, IMG_SIZE),
+        Resize(IMAGE_SIZE, IMAGE_SIZE),
         Rotate(limit=rotation_limit, border_mode=0, p=0.5),
         Perspective(scale=(0.02, 0.05), p=0.3),
         CLAHE(p=0.3),
@@ -36,18 +41,18 @@ def _train_augs(rotation_limit=5, contrast_limit=0.2, elastic_p=0.2, noise_p=0.3
 
 def _eval_augs():
     return Compose([
-        Resize(IMG_SIZE, IMG_SIZE),
+        Resize(IMAGE_SIZE, IMAGE_SIZE),
         Normalize(mean=MEAN, std=STD),
         ToTensorV2(),
     ])
 
 def _dynamic_resize(image):
-    """Resize image to maintain aspect ratio, pad to IMG_SIZE."""
+    """Resize image to maintain aspect ratio, pad to IMAGE_SIZE."""
     h, w = image.shape[:2]
-    scale = IMG_SIZE / max(h, w)
+    scale = IMAGE_SIZE / max(h, w)
     new_h, new_w = int(h * scale), int(w * scale)
     resized = cv2.resize(image, (new_w, new_h))
-    padding = ((0, IMG_SIZE - new_h), (0, IMG_SIZE - new_w), (0, 0))  # Padding for aspect ratio
+    padding = ((0, IMAGE_SIZE - new_h), (0, IMAGE_SIZE - new_w), (0, 0))  # Padding for aspect ratio
     padded_resized = np.pad(resized, padding, mode='constant', constant_values=255)  # White padding
     return padded_resized
 
