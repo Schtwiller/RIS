@@ -17,6 +17,8 @@ If those functions are named differently, tweak the imports below.
 """
 
 from pathlib import Path
+REPO_ROOT = Path(__file__).resolve().parents[2]   # .../reverse-image-search-model
+DEFAULT_DATA_ROOT = REPO_ROOT / "data" / "processed"
 from torch.utils.data import DataLoader
 from .dataset_builder import build_datasets
 from .transforms import (
@@ -28,7 +30,7 @@ from .transforms import (
 class DataModule:
     def __init__(
         self,
-        data_root: str | Path = "data",
+        data_root: str | Path = DEFAULT_DATA_ROOT,
         batch_size: int = 32,
         num_workers: int = 4,
         pin_memory: bool = True,
