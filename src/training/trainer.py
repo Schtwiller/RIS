@@ -202,7 +202,7 @@ def evaluate_model(
             all_labels.extend(labels.tolist())
 
     acc = accuracy_score(all_labels, all_preds)
-    report = classification_report(all_labels, all_preds, target_names=list(class_names))
+    report = classification_report(all_labels, all_preds, target_names=list(class_names), zero_division=0)
 
     if verbose:
         print(f"\nTest accuracy: {acc:.4f}\n")
