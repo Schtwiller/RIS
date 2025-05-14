@@ -18,6 +18,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 import pandas as pd
 from src.config import RAW_DATA_PATH, PROCESSED_DATA_PATH, TRAIN_VAL_SPLIT
+from src.utils.utils import pil_loader_skip_corrupt
 from sklearn.model_selection import train_test_split
 
 from torchvision.datasets import ImageFolder
@@ -31,6 +32,20 @@ VAL_RATIO = (1 - TRAIN_RATIO) / 2
 SEED = 1337
 LINK_INSTEAD_OF_COPY = False  # set True to hard-link instead of copy
 # ────────────────────────────────────────────────────────────────────────────────
+
+
+class ImageFolderSkipCorrupt(ImageFolder):
+    def __init__(self, root, transform=None):
+        super().__init__(root, loader=pil_loader_skip_corrupt, transform=transform)
+
+    # drop Nones so DataLoader doesn’t choke
+    def __getitem__(self, index):
+        sample, target = super().__getitem__(index)
+        while sample is None:
+            # advance index until we get a good sample
+            index = (index + 1) % len(self.samples)
+            sample, target = super().__getitem__(index)
+        return sample, target
 
 def split_dataframe(df: pd.DataFrame) -> dict[str, pd.DataFrame]:
     strat_key = df["doc_type"]
@@ -74,9 +89,9 @@ def build_datasets(
     that point at the processed splits.
     """
     data_root = Path(data_root)
-    train_ds = ImageFolder(data_root / "train", transform=train_tf or tvt.ToTensor())
-    val_ds = ImageFolder(data_root / "val", transform=val_tf or tvt.ToTensor())
-    test_ds = ImageFolder(data_root / "test", transform=test_tf or tvt.ToTensor())
+    train_ds = ImageFolderSkipCorrupt(data_root / "train", transform=train_tf or tvt.ToTensor())
+    val_ds = ImageFolderSkipCorrupt(data_root / "val", transform=val_tf or tvt.ToTensor())
+    test_ds = ImageFolderSkipCorrupt(data_root / "test", transform=test_tf or tvt.ToTensor())
     return train_ds, val_ds, test_ds
 
 def main() -> None:
