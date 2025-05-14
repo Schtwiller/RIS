@@ -20,6 +20,9 @@ import pandas as pd
 from src.config import RAW_DATA_PATH, PROCESSED_DATA_PATH, TRAIN_VAL_SPLIT
 from sklearn.model_selection import train_test_split
 
+from torchvision.datasets import ImageFolder
+from torchvision import transforms as tvt
+
 # ─── CONFIG (hard‑coded paths) ──────────────────────────────────────────────────
 RAW_DIR = RAW_DATA_PATH
 OUT_DIR = PROCESSED_DATA_PATH
@@ -59,6 +62,22 @@ def materialize_split(name: str, subset: pd.DataFrame) -> None:
 
     with open(OUT_DIR / name / "_manifest.json", "w") as f:
         json.dump(manifest, f, indent=2)
+
+def build_datasets(
+        data_root: str | Path = PROCESSED_DATA_PATH,
+        train_tf=None,
+        val_tf=None,
+        test_tf=None,
+):
+    """
+    Return (train_ds, val_ds, test_ds) torch‑vision ImageFolder datasets
+    that point at the processed splits.
+    """
+    data_root = Path(data_root)
+    train_ds = ImageFolder(data_root / "train", transform=train_tf or tvt.ToTensor())
+    val_ds = ImageFolder(data_root / "val", transform=val_tf or tvt.ToTensor())
+    test_ds = ImageFolder(data_root / "test", transform=test_tf or tvt.ToTensor())
+    return train_ds, val_ds, test_ds
 
 def main() -> None:
     # ensure output dirs
