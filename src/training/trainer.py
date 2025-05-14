@@ -104,6 +104,8 @@ def train_model(
     device = torch.device(
         device if device is not None else ("cuda" if torch.cuda.is_available() else "cpu")
     )
+    print(f"\n▶️  Training on: {device}  "
+          f"{torch.cuda.get_device_name(0) if device.type == 'cuda' else ''}\n")
     model.to(device)
 
     criterion = nn.CrossEntropyLoss()
