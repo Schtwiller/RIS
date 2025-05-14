@@ -61,3 +61,12 @@ def build_transforms(mode: str = "train"):
         return _train_augs()
     else:
         return _eval_augs()
+
+def get_train_transforms():
+    return build_transforms("train")
+
+def get_val_transforms():
+    return build_transforms("val")
+
+def get_test_transforms():
+    return build_transforms("test")
