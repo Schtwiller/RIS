@@ -1,0 +1,966 @@
+[
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\RUS_ID\\RUS_ID_e9cee68d60db441582146b44b11e4f83.png",
+    "doc_type": "RUS_ID"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\TX_DL\\TX_DL_e97f1f02a9f14a069d1983c40a04800b.jpg",
+    "doc_type": "TX_DL"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\NY_DL\\NY_DL_2d471e113e4f4ec193d197dfb7787cfc.jpg",
+    "doc_type": "NY_DL"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\IL_DL\\IL_DL_13.png",
+    "doc_type": "IL_DL"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\GRC_Passport\\GRC_Passport_generated.photos_v3_0008825.png",
+    "doc_type": "GRC_Passport"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\RUS_ID\\RUS_ID_79d0de683e194185b3b5c62caefd84e9.png",
+    "doc_type": "RUS_ID"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\CA_DL\\CA_DL_7457597_1_x.jpg",
+    "doc_type": "CA_DL"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\NY_DL\\NY_DL_7697902313fb4d58b4e6d411c60f501c.jpg",
+    "doc_type": "NY_DL"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\WV_DL\\WV_DL_ac3ccd869c8a4690a788206c5db7e85c.png",
+    "doc_type": "WV_DL"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\GRC_Passport\\GRC_Passport_generated.photos_v3_0010602.png",
+    "doc_type": "GRC_Passport"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\CA_DL\\CA_DL_EdMcahon.jpg",
+    "doc_type": "CA_DL"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\PAK_Passport\\PAK_Passport_e08bc60a1e324433bf3a7da7c90fdd61.jpg",
+    "doc_type": "PAK_Passport"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\CA_DL\\CA_DL_California_Drivers_License.jpg",
+    "doc_type": "CA_DL"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\RUS_ID\\RUS_ID_cdd19c43cc7449bdb8594947c958749d.png",
+    "doc_type": "RUS_ID"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\MAL_DL\\MAL_DL_c91e398c5027492a86641b5b5b2f5adf.jpg",
+    "doc_type": "MAL_DL"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\PAK_Passport\\PAK_Passport_9d0cf3a91ed1405fb255315b3434f1f9.jpg",
+    "doc_type": "PAK_Passport"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\TX_DL\\TX_DL_d957db6f4ed049cda50096e7499462c3.jpg",
+    "doc_type": "TX_DL"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\NY_DL\\NY_DL_323bd367f6cc450799b75edc94e732cd.png",
+    "doc_type": "NY_DL"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\RUS_ID\\RUS_ID_e7dc622d70df40ae9e967f074b799796.png",
+    "doc_type": "RUS_ID"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\CA_DL\\CA_DL_CaliSample16.jpg",
+    "doc_type": "CA_DL"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\PAK_Passport\\PAK_Passport_017919abd0894e85aa874a342cd46cbb.jpg",
+    "doc_type": "PAK_Passport"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\TX_DL\\TX_DL_08e3713776d24ee0be27c90a92872516.jpg",
+    "doc_type": "TX_DL"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\CA_DL\\CA_DL_CaliFour.jpg",
+    "doc_type": "CA_DL"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\PAK_ID\\PAK_ID_601d3d61a13c430c8c6da5454251417e.jpg",
+    "doc_type": "PAK_ID"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\NY_DL\\NY_DL_cb0697fdf6a7456784e1c42b7b39241e.jpg",
+    "doc_type": "NY_DL"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\IL_DL\\IL_DL_22.jpg",
+    "doc_type": "IL_DL"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\IL_DL\\IL_DL_Screenshot 2025-05-01 163343.png",
+    "doc_type": "IL_DL"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\US_Passport\\US_Passport_b75292bec9494b828ee43d76eb0b292b.png",
+    "doc_type": "US_Passport"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\MAL_DL\\MAL_DL_5d1d53dc5dba414b80a70720fb57e814.jpg",
+    "doc_type": "MAL_DL"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\PAK_Passport\\PAK_Passport_d694c4c7e48b40198fff174dbced6cdf.jpg",
+    "doc_type": "PAK_Passport"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\MAL_DL\\MAL_DL_b1fbbc2950d445d3bd4125b5f5dcde46.jpg",
+    "doc_type": "MAL_DL"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\TX_DL\\TX_DL_c33e353c69e64f48a1aacaa7c8a20c25.jpg",
+    "doc_type": "TX_DL"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\IND_Gov\\IND_Gov_63f2f406e9d4418f94d3650771b3dad7.png",
+    "doc_type": "IND_Gov"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\GRC_Passport\\GRC_Passport_generated.photos_v3_0005821.png",
+    "doc_type": "GRC_Passport"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\PAK_Passport\\PAK_Passport_e417358581214af6b314b9d500ff9d62.jpg",
+    "doc_type": "PAK_Passport"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\WV_DL\\WV_DL_bd7a049dbc9e466e849736bdd5214d7e.png",
+    "doc_type": "WV_DL"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\IND_Gov\\IND_Gov_9b7ac8f5123a4262a4600d16f96dc2fe.jpg",
+    "doc_type": "IND_Gov"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\US_Passport\\US_Passport_0a0c9b1913c141628e860f6457bf0c9d.png",
+    "doc_type": "US_Passport"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\NJ_DL\\NJ_DL_0f0dc657970f435fbb49d9be91ac60f4.jpg",
+    "doc_type": "NJ_DL"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\GRC_Passport\\GRC_Passport_generated.photos_v3_0008043.png",
+    "doc_type": "GRC_Passport"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\IND_Passport\\IND_Passport_2d67c84eee4b4940bbe97bca2d0199ae.jpg",
+    "doc_type": "IND_Passport"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\IND_Passport\\IND_Passport_e80f1e9e338a4762bae43afc92992027.jpg",
+    "doc_type": "IND_Passport"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\NJ_DL\\NJ_DL_87f33bb086124e8eb2deb9355bdb3d0e.png",
+    "doc_type": "NJ_DL"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\MAL_DL\\MAL_DL_74e8a4425a8d431b9564cad47d3ec510.jpg",
+    "doc_type": "MAL_DL"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\TX_DL\\TX_DL_5a02b2e717f242ad88a79075c080ab9b.jpg",
+    "doc_type": "TX_DL"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\IND_Passport\\IND_Passport_9e0535faa55146d5b0178b30667e479c.jpg",
+    "doc_type": "IND_Passport"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\PAK_Passport\\PAK_Passport_ec24b9570e1d4c5697ca2ee5a120ab85.jpg",
+    "doc_type": "PAK_Passport"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\GRC_Passport\\GRC_Passport_generated.photos_v3_0004021.png",
+    "doc_type": "GRC_Passport"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\NJ_DL\\NJ_DL_f33bb3b2b6f248728e62ea5ef6854f07.jpg",
+    "doc_type": "NJ_DL"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\TX_DL\\TX_DL_8da8726155704945b9736dcac5202ab9.jpeg",
+    "doc_type": "TX_DL"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\MAL_DL\\MAL_DL_b26c2eb225874510b1bfb25923a42ac3.jpg",
+    "doc_type": "MAL_DL"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\TX_DL\\TX_DL_350a9199b1154828bcdda5d4b4df2f22.jpg",
+    "doc_type": "TX_DL"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\NY_DL\\NY_DL_28c81607ce4a4bc3ab371459017dce26.jpg",
+    "doc_type": "NY_DL"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\CA_DL\\CA_DL_New+California+Driver+Licenses.jpg",
+    "doc_type": "CA_DL"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\IND_Gov\\IND_Gov_94e40a912a4544cd84ad1962039bb53f.jpg",
+    "doc_type": "IND_Gov"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\CA_DL\\CA_DL_california-drivers-license-johnm.jpg",
+    "doc_type": "CA_DL"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\TX_DL\\TX_DL_578002292a604ff9a19208499e86cc3f.jpg",
+    "doc_type": "TX_DL"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\IL_DL\\IL_DL_11.jpg",
+    "doc_type": "IL_DL"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\PAK_ID\\PAK_ID_7003c852f0a249ccae650334b4db03e7.jpg",
+    "doc_type": "PAK_ID"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\WV_DL\\WV_DL_2e1598fe8947497c9e7d2be6dc8d4285.png",
+    "doc_type": "WV_DL"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\IL_DL\\IL_DL_12.jpg",
+    "doc_type": "IL_DL"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\US_Passport\\US_Passport_5d2de3ac2fd64c97b1c83bec313145a6.png",
+    "doc_type": "US_Passport"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\RUS_ID\\RUS_ID_9c0fc8d95b61431f85247a2a670a832a.png",
+    "doc_type": "RUS_ID"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\PAK_ID\\PAK_ID_601ac8cffc6e4fee9429ff56305d4718.jpg",
+    "doc_type": "PAK_ID"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\NJ_DL\\NJ_DL_795e957e04f34c0b8f749bc7a3944c41.jpg",
+    "doc_type": "NJ_DL"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\PAK_ID\\PAK_ID_535f611703394963966fffe9bd5f5e1e.jpg",
+    "doc_type": "PAK_ID"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\PAK_Passport\\PAK_Passport_b08cee5fbf6d4dbc8caf47b9a35e6e1d.jpg",
+    "doc_type": "PAK_Passport"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\PAK_Passport\\PAK_Passport_382c0dd1ec94418482e2b86155d8ff47.jpg",
+    "doc_type": "PAK_Passport"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\US_Passport\\US_Passport_ce1138bd5a934ecface2d09c33cf94e2.png",
+    "doc_type": "US_Passport"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\RUS_ID\\RUS_ID_4b144f3b0b924299bc5ae4acd5e9b934.png",
+    "doc_type": "RUS_ID"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\WV_DL\\WV_DL_16273bbd41e24903ae7b7f078295efc0.png",
+    "doc_type": "WV_DL"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\MAL_DL\\MAL_DL_c001af7a3dbc4c868adbda0eaea4e29b.jpeg",
+    "doc_type": "MAL_DL"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\NY_DL\\NY_DL_fc1e87f35b274bca8a60b4e27d6c4f58.png",
+    "doc_type": "NY_DL"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\US_Passport\\US_Passport_77366b3e71304eed8e162fc241e2b700.png",
+    "doc_type": "US_Passport"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\US_Passport\\US_Passport_a16f66dfe3df4f798b02b4fc5c2ee33a.png",
+    "doc_type": "US_Passport"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\MAL_DL\\MAL_DL_f9d339f989c145ee8a6d5ca9e178b96f.jpg",
+    "doc_type": "MAL_DL"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\NJ_DL\\NJ_DL_ebbe599fcb42478ba5dcb4383a6ccaf2.jpg",
+    "doc_type": "NJ_DL"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\NY_DL\\NY_DL_1a76eadbb8264146aaf199f8b5f2115f.jpg",
+    "doc_type": "NY_DL"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\WV_DL\\WV_DL_bd8947f02e8941df8cea24d2d317f824.png",
+    "doc_type": "WV_DL"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\CA_DL\\CA_DL_Cali3.jpg",
+    "doc_type": "CA_DL"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\NY_DL\\NY_DL_2cb7982f1b8a45c5a567aeada697ebd9.jpg",
+    "doc_type": "NY_DL"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\PAK_ID\\PAK_ID_e830f371c8cf42118dfd0e5998c6ad2f.jpg",
+    "doc_type": "PAK_ID"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\IND_Passport\\IND_Passport_a3cb07dc946d415a8097b67e850928f7.jpg",
+    "doc_type": "IND_Passport"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\IL_DL\\IL_DL_Driver's License Disney.jpg",
+    "doc_type": "IL_DL"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\NJ_DL\\NJ_DL_f0fe6b94584a41d8846d566ab4a9ac2c.jpg",
+    "doc_type": "NJ_DL"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\TX_DL\\TX_DL_b5b51965b5c04ef2820c64272b87cc51.jpg",
+    "doc_type": "TX_DL"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\GRC_Passport\\GRC_Passport_generated.photos_v3_0005252.png",
+    "doc_type": "GRC_Passport"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\US_Passport\\US_Passport_e3485b693c3c4f9c807d0af9ab876a9a.png",
+    "doc_type": "US_Passport"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\PAK_ID\\PAK_ID_d0d5870df59b44688bc6fb222c38f731.jpg",
+    "doc_type": "PAK_ID"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\IND_Passport\\IND_Passport_2ef02ff45d5f44dca6cd24540cc07abf.jpg",
+    "doc_type": "IND_Passport"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\MAL_DL\\MAL_DL_ec56109ff07e4d548982360658932ec5.jpg",
+    "doc_type": "MAL_DL"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\MAL_DL\\MAL_DL_eed345dc0e8143b8b68d9a0c9b0ab311.jpeg",
+    "doc_type": "MAL_DL"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\IND_Passport\\IND_Passport_433c46f3aeca4a5482bf905d24429f75.jpg",
+    "doc_type": "IND_Passport"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\US_Passport\\US_Passport_bee910616574439086b67ae6d53e94d5.png",
+    "doc_type": "US_Passport"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\PAK_ID\\PAK_ID_41b478d75c3940a2839b02710e1c1303.jpg",
+    "doc_type": "PAK_ID"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\CA_DL\\CA_DL_WhitneyH.jpg",
+    "doc_type": "CA_DL"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\PAK_ID\\PAK_ID_f1bca96604154fdea0193d4196dd50cf.jpg",
+    "doc_type": "PAK_ID"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\US_Passport\\US_Passport_6849acbfc2d44944b298c1d56d62ca4f.png",
+    "doc_type": "US_Passport"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\NJ_DL\\NJ_DL_013a3a86e554457eb319d06ec9412bb4.gif",
+    "doc_type": "NJ_DL"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\MAL_DL\\MAL_DL_0bbe7d641e9e4be39eb88472ff361bbe.jpg",
+    "doc_type": "MAL_DL"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\NY_DL\\NY_DL_2fca428aa75c480eadcf29aa586155ba.jpg",
+    "doc_type": "NY_DL"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\CA_DL\\CA_DL_4ab537914f9f.jpg",
+    "doc_type": "CA_DL"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\RUS_ID\\RUS_ID_57a232b440b14698a039e14fcf78cbaf.png",
+    "doc_type": "RUS_ID"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\PAK_Passport\\PAK_Passport_746139269f724f50b9c69874973ccc85.jpg",
+    "doc_type": "PAK_Passport"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\US_Passport\\US_Passport_ce0a5129d90b4e51abf74448c86a9b8c.png",
+    "doc_type": "US_Passport"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\IND_Passport\\IND_Passport_3aff6f0c5c914e89aa6846e334323070.jpg",
+    "doc_type": "IND_Passport"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\GRC_Passport\\GRC_Passport_generated.photos_v3_0003285.png",
+    "doc_type": "GRC_Passport"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\MAL_DL\\MAL_DL_76ea739fa58e441eb3f27e94fc6f4b08.jpg",
+    "doc_type": "MAL_DL"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\TX_DL\\TX_DL_c98ca87b155c4ce8aa3ac4240e9032e8.jpg",
+    "doc_type": "TX_DL"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\IND_Passport\\IND_Passport_998e61d50cb448a8bcefc166cf3740ac.jpg",
+    "doc_type": "IND_Passport"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\PAK_Passport\\PAK_Passport_ab4a90fbf39d43049f0a37735aa83b95.jpg",
+    "doc_type": "PAK_Passport"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\IND_Passport\\IND_Passport_fd40e59f81104a15bdd4704f4132adb3.jpg",
+    "doc_type": "IND_Passport"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\RUS_ID\\RUS_ID_8bd431801735400faefcd21ab301f7ca.png",
+    "doc_type": "RUS_ID"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\IL_DL\\IL_DL_9.png",
+    "doc_type": "IL_DL"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\MAL_DL\\MAL_DL_b352882eb6984ed394e11fde347394d2.jpg",
+    "doc_type": "MAL_DL"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\NY_DL\\NY_DL_9398337a10c648fcbe63f1a3bbd9d6cc.jpg",
+    "doc_type": "NY_DL"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\PAK_ID\\PAK_ID_1b317485025f4b8d9ade8e9eda445119.jpg",
+    "doc_type": "PAK_ID"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\WV_DL\\WV_DL_2c3b66a252d3450fb1909e8379a535e1.png",
+    "doc_type": "WV_DL"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\NY_DL\\NY_DL_5f7627405c274e9e9ffd0af8a2b4001e.jpg",
+    "doc_type": "NY_DL"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\PAK_Passport\\PAK_Passport_6410225a32fc4e3b8501f0b5505b70e1.jpg",
+    "doc_type": "PAK_Passport"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\NY_DL\\NY_DL_dd00734b208a43f6961d308f34f795c3.jpg",
+    "doc_type": "NY_DL"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\US_Passport\\US_Passport_af898bf4a55941478625bcb771d04446.png",
+    "doc_type": "US_Passport"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\IND_Passport\\IND_Passport_500e8e2f446246a8a080cace255e582d.jpg",
+    "doc_type": "IND_Passport"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\IL_DL\\IL_DL_0000434_illinois-driver-license.jpg",
+    "doc_type": "IL_DL"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\RUS_ID\\RUS_ID_229fad642c324046a5be5493551bc640.png",
+    "doc_type": "RUS_ID"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\WV_DL\\WV_DL_687efc573f5f4cb68e863c45afb0cb99.png",
+    "doc_type": "WV_DL"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\IND_Gov\\IND_Gov_6382e6acb89b481eb6850074b9c5b8c6.jpg",
+    "doc_type": "IND_Gov"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\RUS_ID\\RUS_ID_2ea690058f164e99ac4668737def6e68.png",
+    "doc_type": "RUS_ID"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\PAK_ID\\PAK_ID_5c26c2a4e8394a508089dcf60c6158bb.jpg",
+    "doc_type": "PAK_ID"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\IND_Gov\\IND_Gov_f4d963a71d2f4dc3ba60bebc385b3853.jpg",
+    "doc_type": "IND_Gov"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\TX_DL\\TX_DL_a74d2709ab504b13bbcf532bc3c039c2.jpg",
+    "doc_type": "TX_DL"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\IL_DL\\IL_DL_15.jpg",
+    "doc_type": "IL_DL"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\GRC_Passport\\GRC_Passport_generated.photos_v3_0010375.png",
+    "doc_type": "GRC_Passport"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\IND_Passport\\IND_Passport_976d49afe46149f7aeead98fd90a5df9.jpg",
+    "doc_type": "IND_Passport"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\IND_Gov\\IND_Gov_5e4b892c443347e0b0bef530e9f05b02.jpg",
+    "doc_type": "IND_Gov"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\TX_DL\\TX_DL_8410e82c79c9493299a77c5f12019f6d.jpg",
+    "doc_type": "TX_DL"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\PAK_ID\\PAK_ID_ff0329b53d114d45892a1e5b6e69eaf1.jpg",
+    "doc_type": "PAK_ID"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\IND_Gov\\IND_Gov_20c3b6349c3641bfa18ce1f9e6920eb8.jpeg",
+    "doc_type": "IND_Gov"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\NJ_DL\\NJ_DL_d3fccfd8cbe346218159548ceff7d274.jpg",
+    "doc_type": "NJ_DL"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\RUS_ID\\RUS_ID_bf688966b22a4dc7a1fcc07832cfeb28.png",
+    "doc_type": "RUS_ID"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\RUS_ID\\RUS_ID_35d10075aabf447fb1b50f623b4f87a6.png",
+    "doc_type": "RUS_ID"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\RUS_ID\\RUS_ID_d7f75031e3b040c59f8101ea6ecc5b04.png",
+    "doc_type": "RUS_ID"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\IND_Passport\\IND_Passport_fe02a14e37e04ba29cac55e2ab50a80f.jpg",
+    "doc_type": "IND_Passport"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\NJ_DL\\NJ_DL_1ce3a2bb270d41c5a535ca0a3a01f547.jpg",
+    "doc_type": "NJ_DL"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\US_Passport\\US_Passport_b6811bedee7d43f78b415571bda8458c.png",
+    "doc_type": "US_Passport"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\WV_DL\\WV_DL_c91c5b69c6a242b594304de8d24efe1c.png",
+    "doc_type": "WV_DL"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\PAK_ID\\PAK_ID_662012522b5b44bbac06a8c9badc8c4c.jpg",
+    "doc_type": "PAK_ID"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\NJ_DL\\NJ_DL_005fba45ee8e42d49cc6ac610d30aa79.jpg",
+    "doc_type": "NJ_DL"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\CA_DL\\CA_DL_CalHaz.jpg",
+    "doc_type": "CA_DL"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\US_Passport\\US_Passport_ec265c28860f4a0eaf385767c1d4d1a4.png",
+    "doc_type": "US_Passport"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\CA_DL\\CA_DL_1440714451127-2-3.png",
+    "doc_type": "CA_DL"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\GRC_Passport\\GRC_Passport_generated.photos_v3_0010320.png",
+    "doc_type": "GRC_Passport"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\MAL_DL\\MAL_DL_27df2f2693324c4dae380d7205c7d2b1.jpeg",
+    "doc_type": "MAL_DL"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\RUS_ID\\RUS_ID_f36784a01e5248ceaca3fbc2a6665eb0.png",
+    "doc_type": "RUS_ID"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\PAK_ID\\PAK_ID_b5ebbb9cfd0449b6b48e1a1bd7bebe4b.jpg",
+    "doc_type": "PAK_ID"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\CA_DL\\CA_DL_MyltonB.jpg",
+    "doc_type": "CA_DL"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\NJ_DL\\NJ_DL_60ac343aa51448ad8f78b3ac737a5457.jpg",
+    "doc_type": "NJ_DL"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\CA_DL\\CA_DL_CaliBaby.jpg",
+    "doc_type": "CA_DL"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\CA_DL\\CA_DL_lohan-drivers-license.jpg",
+    "doc_type": "CA_DL"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\IND_Gov\\IND_Gov_b27d3ad0b8be483b88240611e1d1d565.jpg",
+    "doc_type": "IND_Gov"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\CA_DL\\CA_DL_IMG_1402.jpg",
+    "doc_type": "CA_DL"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\WV_DL\\WV_DL_5dfa116fa52041729df9c68d7177d4c8.png",
+    "doc_type": "WV_DL"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\IL_DL\\IL_DL_14.jpg",
+    "doc_type": "IL_DL"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\PAK_ID\\PAK_ID_bd1adf7664fb480683d180cce8faea0b.jpg",
+    "doc_type": "PAK_ID"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\IL_DL\\IL_DL_Screenshot 2025-05-01 162613.png",
+    "doc_type": "IL_DL"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\PAK_Passport\\PAK_Passport_b8f8ef44debb48adb638a1a542602a4a.jpg",
+    "doc_type": "PAK_Passport"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\NY_DL\\NY_DL_5eb0ce3bd10040569406fc217c3c68c8.jpg",
+    "doc_type": "NY_DL"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\NJ_DL\\NJ_DL_a3929df01ee1481a938e98516d6208e6.jpg",
+    "doc_type": "NJ_DL"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\IND_Gov\\IND_Gov_53e1a51d1dfa4558a221aff2c4821c0a.jpeg",
+    "doc_type": "IND_Gov"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\RUS_ID\\RUS_ID_ca5d27b9119145ed9a1da513c08bc3a8.png",
+    "doc_type": "RUS_ID"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\GRC_Passport\\GRC_Passport_generated.photos_v3_0003357.png",
+    "doc_type": "GRC_Passport"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\NY_DL\\NY_DL_910a441d911d44cb898e9d6a3906f556.jpg",
+    "doc_type": "NY_DL"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\TX_DL\\TX_DL_d62bf97c43f44a18b819637b525d3630.jpg",
+    "doc_type": "TX_DL"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\RUS_ID\\RUS_ID_c7e93bcda9de47f1a0652748f5e2a3ea.png",
+    "doc_type": "RUS_ID"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\US_Passport\\US_Passport_0229ceaf5a45481491a4949f3dd755a1.png",
+    "doc_type": "US_Passport"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\NJ_DL\\NJ_DL_b4dc66b297a3427db43f7f2f97bceced.jpg",
+    "doc_type": "NJ_DL"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\IND_Gov\\IND_Gov_50a97bbf22a7463189030be46a5f976d.jpg",
+    "doc_type": "IND_Gov"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\IND_Passport\\IND_Passport_38177d815e5f4454b0b8e50927bfbbcd.jpg",
+    "doc_type": "IND_Passport"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\GRC_Passport\\GRC_Passport_generated.photos_v3_0003687.png",
+    "doc_type": "GRC_Passport"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\IND_Gov\\IND_Gov_b1b05176a38a4d3b8c43e607a0694f32.jpg",
+    "doc_type": "IND_Gov"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\TX_DL\\TX_DL_76cdad04cbc84f8a8e3ed38a2fba1e0b.jpg",
+    "doc_type": "TX_DL"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\TX_DL\\TX_DL_c5d900d518e3420a9925a50d97989229.jpg",
+    "doc_type": "TX_DL"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\PAK_ID\\PAK_ID_7bca7260490340698cbacafa93c8e9eb.jpg",
+    "doc_type": "PAK_ID"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\NJ_DL\\NJ_DL_fb0ffc57b02f4b2e8a53e510f9cdb6ad.jpg",
+    "doc_type": "NJ_DL"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\TX_DL\\TX_DL_814e5449353d487c842e21f742abb1b9.jpg",
+    "doc_type": "TX_DL"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\MAL_DL\\MAL_DL_fd93a98ff2f3440285c9432c56bdc08e.jpg",
+    "doc_type": "MAL_DL"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\IND_Gov\\IND_Gov_08c15707643a408ca1098c2c354b6be8.jpg",
+    "doc_type": "IND_Gov"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\PAK_Passport\\PAK_Passport_a217e49971fc4d04b57184d630a3151f.jpg",
+    "doc_type": "PAK_Passport"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\GRC_Passport\\GRC_Passport_generated.photos_v3_0010442.png",
+    "doc_type": "GRC_Passport"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\WV_DL\\WV_DL_f883ce3f0322419d9d5339740f99b86d.png",
+    "doc_type": "WV_DL"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\RUS_ID\\RUS_ID_6d36bec2fbf1426daf3ca6feb4cc6689.png",
+    "doc_type": "RUS_ID"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\NJ_DL\\NJ_DL_6bcec177d10741dab59cb4a02e0a9266.jpg",
+    "doc_type": "NJ_DL"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\NJ_DL\\NJ_DL_a7f5c1bd59af4d21aadf439b4aadc467.png",
+    "doc_type": "NJ_DL"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\IND_Gov\\IND_Gov_90cdbd5004904e75b84c8d28aebcee20.jpg",
+    "doc_type": "IND_Gov"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\IND_Passport\\IND_Passport_b1a86c5b0bc94cb7a2779e555315bb28.jpg",
+    "doc_type": "IND_Passport"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\GRC_Passport\\GRC_Passport_generated.photos_0139935.png",
+    "doc_type": "GRC_Passport"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\PAK_ID\\PAK_ID_50e299fd554345348218e13db33873f4.jpg",
+    "doc_type": "PAK_ID"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\WV_DL\\WV_DL_2359cd8c43b84e2199f407e8c98704e1.png",
+    "doc_type": "WV_DL"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\NJ_DL\\NJ_DL_5f756720baeb4bd1ab481f1b9c1bcad1.jpg",
+    "doc_type": "NJ_DL"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\WV_DL\\WV_DL_7d8b8e2976964bc191df1c88d81866af.png",
+    "doc_type": "WV_DL"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\PAK_ID\\PAK_ID_b75c71cbedcd4b04bc974d6b39709ac8.jpg",
+    "doc_type": "PAK_ID"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\IL_DL\\IL_DL_Screenshot 2025-05-01 163006.png",
+    "doc_type": "IL_DL"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\MAL_DL\\MAL_DL_b7b0644a471f41388f581374be23204c.jpeg",
+    "doc_type": "MAL_DL"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\IL_DL\\IL_DL_23.jpg",
+    "doc_type": "IL_DL"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\WV_DL\\WV_DL_2a985b46e26446ee8bea128ef2e4c7d1.png",
+    "doc_type": "WV_DL"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\PAK_ID\\PAK_ID_4846613c00a94bc1aba2eedcab4747e2.jpg",
+    "doc_type": "PAK_ID"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\IND_Passport\\IND_Passport_39e2f04ed6e44a99a0b1988b8317856b.jpg",
+    "doc_type": "IND_Passport"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\WV_DL\\WV_DL_063055400a344a1caf3a795e5e863d81.png",
+    "doc_type": "WV_DL"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\PAK_Passport\\PAK_Passport_e5f75e4ba92145769e32f77e61eb396d.jpg",
+    "doc_type": "PAK_Passport"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\IND_Passport\\IND_Passport_3468f12a04c747c39591ceda4b78ed31.jpg",
+    "doc_type": "IND_Passport"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\IL_DL\\IL_DL_16.jpg",
+    "doc_type": "IL_DL"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\NY_DL\\NY_DL_1df23d19854542a9b230c7215e7e9eb7.jpg",
+    "doc_type": "NY_DL"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\MAL_DL\\MAL_DL_6f8da32734214258bd932f93361720f4.jpg",
+    "doc_type": "MAL_DL"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\TX_DL\\TX_DL_046b2c796f8342a6a2d9d3e76763d1cc.png",
+    "doc_type": "TX_DL"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\NY_DL\\NY_DL_b317b17e7154458bb691c98324148b6c.png",
+    "doc_type": "NY_DL"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\IND_Gov\\IND_Gov_e6414a3a17bd4486b43154a2bf79a0d8.jpg",
+    "doc_type": "IND_Gov"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\PAK_Passport\\PAK_Passport_503f9be5e65f4ac7a300067bc1650e0f.jpg",
+    "doc_type": "PAK_Passport"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\WV_DL\\WV_DL_8d1605e7ea63442c859ee961c2c44642.png",
+    "doc_type": "WV_DL"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\MAL_DL\\MAL_DL_d196673734154f6ebaf8c06b21ae36b3.jpg",
+    "doc_type": "MAL_DL"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\IND_Passport\\IND_Passport_2049e23982ba4b32be24c32dfbf02ef5.jpg",
+    "doc_type": "IND_Passport"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\TX_DL\\TX_DL_070b8886d5fe429e98da58050b3ad217.jpg",
+    "doc_type": "TX_DL"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\PAK_Passport\\PAK_Passport_9ecd41d44b434badaa2b263de3e85e77.jpg",
+    "doc_type": "PAK_Passport"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\IL_DL\\IL_DL_illinois_drivers_license.png",
+    "doc_type": "IL_DL"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\GRC_Passport\\GRC_Passport_generated.photos_v3_0004872.png",
+    "doc_type": "GRC_Passport"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\WV_DL\\WV_DL_a152962b97714d9d9fc2b238d1d9ce27.png",
+    "doc_type": "WV_DL"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\WV_DL\\WV_DL_d1f3b9c1bb59482b96ddb7766da553e9.png",
+    "doc_type": "WV_DL"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\TX_DL\\TX_DL_2ab5e4d669414330ae87d7fb4ee7fe1c.jpg",
+    "doc_type": "TX_DL"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\IL_DL\\IL_DL_19.jpg",
+    "doc_type": "IL_DL"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\GRC_Passport\\GRC_Passport_generated.photos_0210845.png",
+    "doc_type": "GRC_Passport"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\IL_DL\\IL_DL_20.jpg",
+    "doc_type": "IL_DL"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\US_Passport\\US_Passport_f2aeb4d9794e4a06b1d9b9161784c13a.png",
+    "doc_type": "US_Passport"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\NY_DL\\NY_DL_418ba409f4074b1fb2b9cf6ba574c61f.jpg",
+    "doc_type": "NY_DL"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\IL_DL\\IL_DL_10.png",
+    "doc_type": "IL_DL"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\MAL_DL\\MAL_DL_d29f932aa05745299597b6d57ed04a5c.jpeg",
+    "doc_type": "MAL_DL"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\NJ_DL\\NJ_DL_b6c3472d21494ff6bb4be40f8a2076f8.png",
+    "doc_type": "NJ_DL"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\GRC_Passport\\GRC_Passport_generated.photos_v3_0009572.png",
+    "doc_type": "GRC_Passport"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\CA_DL\\CA_DL_CaliSample15.jpg",
+    "doc_type": "CA_DL"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\GRC_Passport\\GRC_Passport_generated.photos_v3_0007944.png",
+    "doc_type": "GRC_Passport"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\CA_DL\\CA_DL_92308cce49ae7a2e811046a4b1ca80bd--drivers-license-psd.jpg",
+    "doc_type": "CA_DL"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\PAK_Passport\\PAK_Passport_69e7d285240040cc9d9946d0b90a123c.jpg",
+    "doc_type": "PAK_Passport"
+  },
+  {
+    "path": "C:\\Users\\jrwhite\\Reverse Image Search\\reverse-image-search-model\\data\\processed\\train\\IND_Gov\\IND_Gov_84799f6bc8ad4b72b845826ba305e4a2.jpg",
+    "doc_type": "IND_Gov"
+  }
+]
