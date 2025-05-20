@@ -7,7 +7,9 @@ No evaluation, plotting, or external deps beyond torch/torchvision.
 """
 
 import torch.nn as nn
+from torch.nn.functional import dropout
 from torchvision import models
+from src.config import MODEL
 
 def create_resnet50_model(
     num_classes: int,
@@ -26,8 +28,11 @@ def create_resnet50_model(
         for p in model.parameters():
             p.requires_grad_(False)
 
-    in_feats = model.fc.in_features  # 2048
-    model.fc = nn.Linear(in_feats, num_classes)
+    in_features = model.fc.in_features  # 2048
+    model.fc = nn.Sequential(
+        nn.Dropout(p=MODEL["dropout_rate"]),
+        nn.Linear(in_features, num_classes),
+    )
     return model
 
 
