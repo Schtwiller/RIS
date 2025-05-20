@@ -70,9 +70,9 @@ def train_model(
     train_loader: torch.utils.data.DataLoader,
     val_loader: torch.utils.data.DataLoader,
     *,
-    epochs: TRAINING["epochs"],
-    lr: OPTIMIZER["lr"],
-    weight_decay: OPTIMIZER["weight_decay"],
+    epochs: int = TRAINING["epochs"],
+    lr: float = OPTIMIZER["lr"],
+    weight_decay: float = OPTIMIZER["weight_decay"],
     device: torch.device | str | None = None,
     ckpt_dir: str | Path | None = None,
     scheduler_step: int = 2,      # patience (epochs w/o val‑loss improve)
