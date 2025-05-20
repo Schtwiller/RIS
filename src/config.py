@@ -5,7 +5,7 @@ from pathlib import Path
 
 # General settings
 PROJECT_NAME = "Reverse Image Search"
-IMAGE_SIZE = 224  # Default size of images to resize
+IMAGE_SIZE = 512  # Default size of images to resize
 BATCH_SIZE = 32
 EPOCHS = 20
 LEARNING_RATE = 0.001
