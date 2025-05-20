@@ -32,11 +32,17 @@ MODEL = {
     "dropout_rate": 0.5
 }
 
+# Training settings
+TRAINING = {
+    "epochs": 10
+}
+
 # Optimizer settings
 OPTIMIZER = {
     "name": "adam",  # Optimizer type (e.g., adam, sgd)
     "momentum": 0.9,  # Only for SGD
-    "weight_decay": 1e-4  # Regularization term
+    "weight_decay": 1e-4,  # Regularization term
+    "lr": 1e-3
 }
 
 # Logging and checkpoints
