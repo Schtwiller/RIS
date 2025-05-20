@@ -36,19 +36,27 @@ class AlbumentationsWrapper:
     def __init__(self, aug: A.Compose):
         self.aug = aug
 
-    def __call__(self, img):
-        # torchvision supplies PIL.Image; Albumentations wants np.ndarray
+    def __call__(self, img=None, **kwargs):
+        """
+        Accept either calling convention:
+            y = transform(pil_img)              # torchvision.Dataset usage
+            d = transform(image=pil_img)        # Albumentations‑style (unit tests)
+        """
+        # -- Albumentations‑style ------------------------------------------------
+        if kwargs:
+            return self.aug(**kwargs)           # returns dict with 'image', etc.
+
+        # -- torchvision / ImageFolder style ------------------------------------
+        if img is None:
+            raise ValueError("AlbumentationsWrapper: no image provided")
         if not isinstance(img, np.ndarray):
             img = np.array(img)
 
-        augmented = self.aug(image=img)["image"]
+        out = self.aug(image=img)["image"]      # tensor or np.ndarray
+        if isinstance(out, np.ndarray):
+            out = F.to_tensor(out)
+        return out
 
-        # If the pipeline ends with ToTensorV2, we already have a tensor.
-        # Otherwise, convert explicitly.
-        if isinstance(augmented, np.ndarray):
-            augmented = F.to_tensor(augmented)
-
-        return augmented
 
 # --------------------------------------------------------------------- #
 # Helper – dynamic resize that preserves aspect ratio                   #
