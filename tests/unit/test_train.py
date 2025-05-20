@@ -34,6 +34,6 @@ def test_one_epoch_training_cpu():
     train_loader, val_loader, test_loader, train_ds = _fake_dataloaders()
     model = create_resnet50_model(num_classes=3, use_pretrained=False)
     # train for 1 epoch on CPU
-    model = train_model(model, train_loader, val_loader, epochs=1, lr=1e-3, device=torch.device("cpu"))
+    model = train_model(model, train_loader, val_loader, epochs=1, lr=1e-3, weight_decay=1e-4, device=torch.device("cpu"))
     # quick eval (just to run the code path)
     evaluate_model(model, test_loader, class_names=[str(i) for i in range(3)], device=torch.device("cpu"))

@@ -4,6 +4,7 @@ from pathlib import Path
 from src.datasets import IDDataset
 from src.datasets.transforms import build_transforms
 import numpy as np
+from src.config import IMAGE_SIZE
 
 # ← absolute path to reverse-image-search-model/data/processed
 PROCESSED_DIR = Path(__file__).resolve().parents[2] / "data" / "processed"
@@ -33,14 +34,14 @@ def test_train_transform(train_ds):
     img, lbl = train_ds[0]
     # Check if the image is a tensor of correct shape
     assert isinstance(img, torch.Tensor)
-    assert img.shape == (3, 224, 224)
+    assert img.shape == (3, IMAGE_SIZE, IMAGE_SIZE)
 
 def test_val_transform(val_ds):
     # Get the first sample from validation dataset
     img, lbl = val_ds[0]
     # Check if the image is a tensor of correct shape
     assert isinstance(img, torch.Tensor)
-    assert img.shape == (3, 224, 224)
+    assert img.shape == (3, IMAGE_SIZE, IMAGE_SIZE)
 
 def test_augmentation(train_ds):
     # Ensure random augmentations happen for each access

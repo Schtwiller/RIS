@@ -8,6 +8,7 @@ import torch
 
 from src.datasets import IDDataset
 from src.datasets.transforms import build_transforms
+from src.config import IMAGE_SIZE
 
 # ← absolute path to reverse-image-search-model/data/processed
 PROCESSED = Path(__file__).resolve().parents[2] / "data" / "processed"
@@ -24,7 +25,7 @@ def test_sample_shape(train_ds):
     x, label = train_ds[0]
     # Albumentations returns a tensor already
     assert isinstance(x, torch.Tensor)
-    assert x.shape == (3, 224, 224)
+    assert x.shape == (3, IMAGE_SIZE, IMAGE_SIZE)
     # Label is a string for now
     assert isinstance(label, str)
 
@@ -33,5 +34,5 @@ def test_dataloader_batch(train_ds):
 
     loader = DataLoader(train_ds, batch_size=4, shuffle=True, num_workers=0)
     x, y = next(iter(loader))
-    assert x.shape == (4, 3, 224, 224)
+    assert x.shape == (4, 3, IMAGE_SIZE, IMAGE_SIZE)
     assert len(y) == 4
