@@ -14,8 +14,11 @@ evaluate_model()        : test‑set evaluation + report
 """
 
 from __future__ import annotations
+
+import copy
 from pathlib import Path
-from typing import Iterable, List, Union
+from typing import Iterable, List, Union, Tuple
+from src.config import OPTIMIZER, TRAINING
 
 import torch
 import torch.nn as nn
@@ -67,69 +70,62 @@ def train_model(
     train_loader: torch.utils.data.DataLoader,
     val_loader: torch.utils.data.DataLoader,
     *,
-    epochs: int = 10,
-    lr: float = 1e-3,
-    weight_decay: float = 1e-4,
+    epochs: TRAINING["epochs"],
+    lr: OPTIMIZER["lr"],
+    weight_decay: OPTIMIZER["weight_decay"],
     device: torch.device | str | None = None,
     ckpt_dir: str | Path | None = None,
-    scheduler_step: int = 7,
-    scheduler_gamma: float = 0.1,
+    scheduler_step: int = 2,      # patience (epochs w/o val‑loss improve)
+    scheduler_gamma: float = 0.1, # LR scale factor when plateau
     verbose: bool = True,
 ) -> nn.Module:
     """
-    Train `model` on `train_loader`, validating on `val_loader` each epoch.
-
-    Parameters
-    ----------
-    model : nn.Module
-    train_loader : DataLoader
-    val_loader   : DataLoader
-    epochs       : int
-    lr           : float
-    weight_decay : float
-    device       : torch.device | str | None
-        'cuda', 'cpu', or torch.device.  If None → choose automatically.
-    ckpt_dir     : str | Path | None
-        If provided, saves the *best* validation‑accuracy model to this dir.
-    scheduler_step, scheduler_gamma : int, float
-        Params for ReduceLROnPlateau‑like step scheduler.
-    verbose : bool
-        If True, prints per‑epoch stats.
-
-    Returns
-    -------
-    nn.Module
-        The trained *best* model (w. highest val accuracy).
+    Fine‑tune `model` on `train_loader`, validating on `val_loader`.
+    Adds:
+      • ReduceLROnPlateau scheduler   (patience = `scheduler_step`,
+                                       factor   = `scheduler_gamma`)
+      • Early‑stopping (patience = 3 epochs on val‑loss)
+      • Best‑model checkpoint saving.
+    Returns the best‑val‑accuracy model.
     """
     device = torch.device(
         device if device is not None else ("cuda" if torch.cuda.is_available() else "cpu")
     )
-    print(f"\n▶️  Training on: {device}  "
-          f"{torch.cuda.get_device_name(0) if device.type == 'cuda' else ''}\n")
+    print(
+        f"\n▶️  Training on: {device}  "
+        f"{torch.cuda.get_device_name(0) if device.type == 'cuda' else ''}\n"
+    )
     model.to(device)
 
-    criterion = nn.CrossEntropyLoss()
-    optimizer = optim.Adam(
+    criterion  = nn.CrossEntropyLoss()
+    optimizer  = optim.Adam(
         filter(lambda p: p.requires_grad, model.parameters()),
         lr=lr,
         weight_decay=weight_decay,
     )
-    scheduler = optim.lr_scheduler.StepLR(
-        optimizer, step_size=scheduler_step, gamma=scheduler_gamma
+    scheduler  = optim.lr_scheduler.ReduceLROnPlateau(
+        optimizer,
+        mode="min",
+        factor=scheduler_gamma,
+        patience=scheduler_step
     )
 
-    best_acc = 0.0
-    best_state = None
+    best_acc   = 0.0
+    best_state = copy.deepcopy(model.state_dict())
+
+    best_val_loss      = float("inf")
+    epochs_no_improve  = 0
+    early_stop_patience = 3
 
     for epoch in range(1, epochs + 1):
-        # -------------------- train -------------------- #
+        # ── training loop ───────────────────────────────────────────── #
         model.train()
         running_loss = 0.0
         for imgs, labels in train_loader:
             imgs, labels = imgs.to(device), labels.to(device)
-
             optimizer.zero_grad(set_to_none=True)
-            out = model(imgs)
+
+            out  = model(imgs)
             loss = criterion(out, labels)
             loss.backward()
             optimizer.step()
@@ -138,32 +134,49 @@ def train_model(
 
         train_loss = running_loss / len(train_loader.dataset)
 
-        # ------------------ validate ------------------- #
+        # ── validation loop ─────────────────────────────────────────── #
         val_loss, val_acc = _evaluate_loop(model, val_loader, criterion, device)
-        scheduler.step()
 
         if verbose:
             print(
                 f"[{epoch:02d}/{epochs}]  "
                 f"train_loss={train_loss:.4f}  "
                 f"val_loss={val_loss:.4f}  "
-                f"val_acc={val_acc:.4f}"
+                f"val_acc={val_acc:.4f}  "
+                f"lr={optimizer.param_groups[0]['lr']:.6f}"
             )
 
-        # save best
+        # ── LR scheduler step (plateau on val‑loss) ─────────────────── #
+        scheduler.step(val_loss)
+
+        # ── best‑model tracking (by val‑accuracy) ───────────────────── #
         if val_acc > best_acc:
             best_acc = val_acc
-            best_state = model.state_dict()
+            best_state = copy.deepcopy(model.state_dict())
 
-    if best_state is not None:
-        model.load_state_dict(best_state)
-        if ckpt_dir is not None:
-            ckpt_dir = Path(ckpt_dir)
-            ckpt_dir.mkdir(parents=True, exist_ok=True)
-            path = ckpt_dir / "best_resnet50.pt"
-            torch.save(best_state, path)
+        # ── early‑stopping on val‑loss ──────────────────────────────── #
+        if val_loss + 1e-6 < best_val_loss:        # significant improvement
+            best_val_loss = val_loss
+            epochs_no_improve = 0
+        else:
+            epochs_no_improve += 1
+
+        if epochs_no_improve >= early_stop_patience:
             if verbose:
-                print(f"✅  best model checkpoint saved to {path.resolve()}")
+                print(f"\n🛑 Early stopping at epoch {epoch} "
+                      f"(no val‑loss improvement for {early_stop_patience} epochs)")
+            break
+
+    # ── load & optionally save the best model ───────────────────────── #
+    model.load_state_dict(best_state)
+    if ckpt_dir is not None:
+        ckpt_dir = Path(ckpt_dir)
+        ckpt_dir.mkdir(parents=True, exist_ok=True)
+        ckpt_path = ckpt_dir / "best_resnet50.pt"
+        torch.save(best_state, ckpt_path)
+        if verbose:
+            print(f"✅  best model checkpoint saved to {ckpt_path.resolve()}")
+
     return model
 
 
@@ -218,27 +231,21 @@ def evaluate_model(
 # --------------------------------------------------------------- #
 def _evaluate_loop(
     model: nn.Module,
-    loader: torch.utils.data.DataLoader,
+    dataloader: torch.utils.data.DataLoader,
     criterion: nn.Module,
     device: torch.device,
-):
-    """Internal helper to compute loss + accuracy for a given loader."""
+) -> Tuple[float, float]:
+    """Return (val_loss, val_accuracy) for one pass over `dataloader`."""
     model.eval()
-    running_loss = 0.0
-    correct = 0
-    total = 0
-
+    loss_sum, correct, total = 0.0, 0, 0
     with torch.no_grad():
-        for imgs, labels in loader:
+        for imgs, labels in dataloader:
             imgs, labels = imgs.to(device), labels.to(device)
             out = model(imgs)
             loss = criterion(out, labels)
-            running_loss += loss.item() * imgs.size(0)
-
+            loss_sum += loss.item() * imgs.size(0)
             preds = out.argmax(dim=1)
             correct += (preds == labels).sum().item()
             total += labels.size(0)
+    return loss_sum / total, correct / total
 
-    avg_loss = running_loss / len(loader.dataset)
-    acc = correct / total if total else 0.0
-    return avg_loss, acc
