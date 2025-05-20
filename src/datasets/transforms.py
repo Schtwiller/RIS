@@ -9,7 +9,6 @@ from pathlib import Path
 import numpy as np
 import cv2
 import albumentations as A
-from albumentations.augmentations.transforms import GaussNoise
 from albumentations.pytorch import ToTensorV2
 import torchvision.transforms.functional as F  # only used as a fallback
 
