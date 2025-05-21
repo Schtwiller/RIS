@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 On‑the‑fly preprocessing & augmentation pipelines
-(train / val / test / inference) that work as regular
+(train / val / test / features) that work as regular
 torchvision transforms thanks to AlbumentationsWrapper.
 """
 
