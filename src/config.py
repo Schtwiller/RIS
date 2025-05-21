@@ -6,9 +6,6 @@ from pathlib import Path
 # General settings
 PROJECT_NAME = "Reverse Image Search"
 IMAGE_SIZE = 512  # Default size of images to resize
-BATCH_SIZE = 32
-EPOCHS = 20
-LEARNING_RATE = 0.001
 
 # Data settings
 RAW_DATA_PATH = Path(__file__).parents[2] / "data" / "raw"
@@ -34,7 +31,9 @@ MODEL = {
 
 # Training settings
 TRAINING = {
-    "epochs": 10
+    "epochs": 10,
+    "patience": 3,
+    "batch_size": 32
 }
 
 # Optimizer settings
