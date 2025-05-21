@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-infer.py  –  Fixed-config CNN inference using the checkpoint
+infer.py  –  Fixed-config CNN features using the checkpoint
 checkpoints/resnet50_epoch10.pt. No CLI arguments required.
 """
 
@@ -19,12 +19,12 @@ from src.config import IMAGE_SIZE
 CHECKPOINT_PATH = "checkpoints/resnet50_epoch10.pt"
 
 # Inference on a single image:
-QUERY_IMAGE     = "data/inference/NJ_DL1.jpg"
-# Or inference on an entire folder (set FOLDER_INFERENCE to True):
+QUERY_IMAGE     = "data/features/NJ_DL1.jpg"
+# Or features on an entire folder (set FOLDER_INFERENCE to True):
 FOLDER_INFERENCE = False
 QUERY_FOLDER     = "sample_queries/"
 
-BATCH_SIZE       = 32  # for folder inference
+BATCH_SIZE       = 32  # for folder features
 # ────────────────────────────────────────────────────────────────────────────────
 
 def load_model():
@@ -64,8 +64,8 @@ def main():
     else:
         images = [Path(QUERY_IMAGE)]
 
-    # Run inference
-    print(f"[INFO] Running inference on {len(images)} image(s) using {CHECKPOINT_PATH}")
+    # Run features
+    print(f"[INFO] Running features on {len(images)} image(s) using {CHECKPOINT_PATH}")
     for idx, img_path in enumerate(images, 1):
         batch = preprocess_image(img_path, tf).to(device)
         logits = model(batch)
