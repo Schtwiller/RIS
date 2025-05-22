@@ -32,7 +32,7 @@ def extract_features(
 
     backbone = nn.Sequential(*list(model.children())[:-1]).to(device)
 
-    tf = transform or _DEFAULT_TF()
+    tf = transform or _DEFAULT_TF
     imgs = [tf(Image.open(p).convert("RGB")) for p in image_paths]
     loader = DataLoader(imgs, batch_size=batch_size, shuffle=False)
 
