@@ -5,27 +5,21 @@ import numpy as np
 import torch
 from torch import nn
 from torch.utils.data import DataLoader
-from torchvision import transforms as T
+from src.datasets.transforms import get_val_transforms
 from PIL import Image
-from src.config import IMAGE_SIZE, AUGMENTATION
+from src.config import TRAINING, AUGMENTATION
 
 MEAN = AUGMENTATION["mean"]
 STD = AUGMENTATION["std"]
-
-# ---------- helper --------------------------------------------------- #
-def _default_transform():
-    return T.Compose([
-        T.Resize((IMAGE_SIZE, IMAGE_SIZE)),
-        T.ToTensor(),
-        T.Normalize(MEAN, STD),
-    ])
+_DEFAULT_TF = get_val_transforms()      # uses the central definition
+BATCH_SIZE = TRAINING["batch_size"]
 
 # ---------- public API ----------------------------------------------- #
 @torch.no_grad()
 def extract_features(
     model: nn.Module,
     image_paths: List[str],
-    batch_size: int = 32,
+    batch_size: int = BATCH_SIZE,
     device: torch.device | None = None,
     transform=None,
 ) -> np.ndarray:
@@ -38,7 +32,7 @@ def extract_features(
 
     backbone = nn.Sequential(*list(model.children())[:-1]).to(device)
 
-    tf = transform or _default_transform()
+    tf = transform or _DEFAULT_TF()
     imgs = [tf(Image.open(p).convert("RGB")) for p in image_paths]
     loader = DataLoader(imgs, batch_size=batch_size, shuffle=False)
 
