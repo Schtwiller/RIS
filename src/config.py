@@ -55,5 +55,11 @@ CHECKPOINTS = {
     "save_best_only": True
 }
 
+INDEXING = {
+    "graduating_threshold": 10,
+    "top_k_images": 5,
+    "match_threshold": 1.2
+}
+
 # Training/Validation Split
 TRAIN_VAL_SPLIT = 0.7
