@@ -20,13 +20,14 @@ from pathlib import Path
 import numpy as np
 from PIL import Image
 import torch
+from src.config import IMAGE_SIZE
 
 from src.models.resnet50 import create_resnet50_model
 from src.features.extractor import extract_features
 
 
 def _make_dummy_rgb(path: Path, color):
-    img = Image.new("RGB", (224, 224), color=color)
+    img = Image.new("RGB", (IMAGE_SIZE, IMAGE_SIZE), color=color)
     img.save(path)
 
 
