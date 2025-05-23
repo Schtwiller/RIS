@@ -58,7 +58,8 @@ CHECKPOINTS = {
 INDEXING = {
     "graduating_threshold": 10,
     "top_k_images": 5,
-    "match_threshold": 1.2
+    "match_threshold": 1.2,
+    "n_fallback": 3
 }
 
 # Training/Validation Split
