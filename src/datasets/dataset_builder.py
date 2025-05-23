@@ -47,6 +47,7 @@ class ImageFolderSkipCorrupt(ImageFolder):
             sample, target = super().__getitem__(index)
         return sample, target
 
+
 def split_dataframe(df: pd.DataFrame) -> dict[str, pd.DataFrame]:
     strat_key = df["doc_type"]
     df_train, df_tmp = train_test_split(
@@ -60,6 +61,7 @@ def split_dataframe(df: pd.DataFrame) -> dict[str, pd.DataFrame]:
         random_state=SEED,
     )
     return {"train": df_train, "val": df_val, "test": df_test}
+
 
 def materialize_split(name: str, subset: pd.DataFrame) -> None:
     manifest: list[dict[str, str]] = []
@@ -78,21 +80,29 @@ def materialize_split(name: str, subset: pd.DataFrame) -> None:
     with open(OUT_DIR / name / "_manifest.json", "w") as f:
         json.dump(manifest, f, indent=2)
 
+
 def build_datasets(
-        data_root: str | Path = PROCESSED_DATA_PATH,
-        train_tf=None,
-        val_tf=None,
-        test_tf=None,
+    data_root: str | Path = PROCESSED_DATA_PATH,
+    train_tf=None,
+    val_tf=None,
+    test_tf=None,
 ):
     """
     Return (train_ds, val_ds, test_ds) torch‑vision ImageFolder datasets
     that point at the processed splits.
     """
     data_root = Path(data_root)
-    train_ds = ImageFolderSkipCorrupt(data_root / "train", transform=train_tf or tvt.ToTensor())
-    val_ds = ImageFolderSkipCorrupt(data_root / "val", transform=val_tf or tvt.ToTensor())
-    test_ds = ImageFolderSkipCorrupt(data_root / "test", transform=test_tf or tvt.ToTensor())
+    train_ds = ImageFolderSkipCorrupt(
+        data_root / "train", transform=train_tf or tvt.ToTensor()
+    )
+    val_ds = ImageFolderSkipCorrupt(
+        data_root / "val", transform=val_tf or tvt.ToTensor()
+    )
+    test_ds = ImageFolderSkipCorrupt(
+        data_root / "test", transform=test_tf or tvt.ToTensor()
+    )
     return train_ds, val_ds, test_ds
+
 
 def main() -> None:
     # ensure output dirs

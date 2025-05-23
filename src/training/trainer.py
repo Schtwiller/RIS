@@ -26,6 +26,7 @@ import torch.optim as optim
 from sklearn.metrics import classification_report, accuracy_score
 from torchvision import models
 
+
 # --------------------------------------------------------------- #
 #  Model helper
 # --------------------------------------------------------------- #
@@ -75,8 +76,8 @@ def train_model(
     weight_decay: float = OPTIMIZER["weight_decay"],
     device: torch.device | str | None = None,
     ckpt_dir: str | Path | None = None,
-    scheduler_step: int = 2,      # patience (epochs w/o val‑loss improve)
-    scheduler_gamma: float = 0.1, # LR scale factor when plateau
+    scheduler_step: int = 2,  # patience (epochs w/o val‑loss improve)
+    scheduler_gamma: float = 0.1,  # LR scale factor when plateau
     verbose: bool = True,
 ) -> nn.Module:
     """
@@ -89,7 +90,9 @@ def train_model(
     Returns the best‑val‑accuracy model.
     """
     device = torch.device(
-        device if device is not None else ("cuda" if torch.cuda.is_available() else "cpu")
+        device
+        if device is not None
+        else ("cuda" if torch.cuda.is_available() else "cpu")
     )
     print(
         f"\n▶️  Training on: {device}  "
@@ -97,24 +100,21 @@ def train_model(
     )
     model.to(device)
 
-    criterion  = nn.CrossEntropyLoss()
-    optimizer  = optim.Adam(
+    criterion = nn.CrossEntropyLoss()
+    optimizer = optim.Adam(
         filter(lambda p: p.requires_grad, model.parameters()),
         lr=lr,
         weight_decay=weight_decay,
     )
-    scheduler  = optim.lr_scheduler.ReduceLROnPlateau(
-        optimizer,
-        mode="min",
-        factor=scheduler_gamma,
-        patience=scheduler_step
+    scheduler = optim.lr_scheduler.ReduceLROnPlateau(
+        optimizer, mode="min", factor=scheduler_gamma, patience=scheduler_step
     )
 
-    best_acc   = 0.0
+    best_acc = 0.0
     best_state = copy.deepcopy(model.state_dict())
 
-    best_val_loss      = float("inf")
-    epochs_no_improve  = 0
+    best_val_loss = float("inf")
+    epochs_no_improve = 0
     early_stop_patience = 3
 
     for epoch in range(1, epochs + 1):
@@ -125,7 +125,7 @@ def train_model(
             imgs, labels = imgs.to(device), labels.to(device)
             optimizer.zero_grad(set_to_none=True)
 
-            out  = model(imgs)
+            out = model(imgs)
             loss = criterion(out, labels)
             loss.backward()
             optimizer.step()
@@ -155,7 +155,7 @@ def train_model(
             best_state = copy.deepcopy(model.state_dict())
 
         # ── early‑stopping on val‑loss ──────────────────────────────── #
-        if val_loss + 1e-6 < best_val_loss:        # significant improvement
+        if val_loss + 1e-6 < best_val_loss:  # significant improvement
             best_val_loss = val_loss
             epochs_no_improve = 0
         else:
@@ -163,8 +163,10 @@ def train_model(
 
         if epochs_no_improve >= early_stop_patience:
             if verbose:
-                print(f"\n🛑 Early stopping at epoch {epoch} "
-                      f"(no val‑loss improvement for {early_stop_patience} epochs)")
+                print(
+                    f"\n🛑 Early stopping at epoch {epoch} "
+                    f"(no val‑loss improvement for {early_stop_patience} epochs)"
+                )
             break
 
     # ── load & optionally save the best model ───────────────────────── #
@@ -200,7 +202,9 @@ def evaluate_model(
         {"accuracy": float, "report": str}
     """
     device = torch.device(
-        device if device is not None else ("cuda" if torch.cuda.is_available() else "cpu")
+        device
+        if device is not None
+        else ("cuda" if torch.cuda.is_available() else "cpu")
     )
     model.to(device)
     model.eval()
@@ -217,7 +221,9 @@ def evaluate_model(
             all_labels.extend(labels.tolist())
 
     acc = accuracy_score(all_labels, all_preds)
-    report = classification_report(all_labels, all_preds, target_names=list(class_names), zero_division=0)
+    report = classification_report(
+        all_labels, all_preds, target_names=list(class_names), zero_division=0
+    )
 
     if verbose:
         print(f"\nTest accuracy: {acc:.4f}\n")
@@ -248,4 +254,3 @@ def _evaluate_loop(
             correct += (preds == labels).sum().item()
             total += labels.size(0)
     return loss_sum / total, correct / total
-

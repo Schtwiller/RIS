@@ -5,6 +5,7 @@ import numpy as np
 from PIL import Image
 from torch.utils.data import Dataset
 
+
 class IDDataset(Dataset):
     def __init__(self, split: str, root: Path = Path("data/processed"), transform=None):
         manifest = root / split / "_manifest.json"
@@ -19,5 +20,5 @@ class IDDataset(Dataset):
         img = Image.open(meta["path"]).convert("RGB")
         if self.transform:
             img = self.transform(image=np.array(img))["image"]
-        label = meta["doc_type"]     # or encode to int later
+        label = meta["doc_type"]  # or encode to int later
         return img, label

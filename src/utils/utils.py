@@ -5,6 +5,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from PIL import Image, UnidentifiedImageError
 
+
 def evaluate_model(model, dataloader, device):
     model.eval()
     all_preds = []
@@ -21,14 +22,18 @@ def evaluate_model(model, dataloader, device):
     accuracy = accuracy_score(all_labels, all_preds)
     return accuracy, confusion_matrix(all_labels, all_preds)
 
+
 def plot_confusion_matrix(cm, labels):
-    """ Plot the confusion matrix using seaborn """
+    """Plot the confusion matrix using seaborn"""
     plt.figure(figsize=(10, 7))
-    sns.heatmap(cm, annot=True, fmt="d", cmap="Blues", xticklabels=labels, yticklabels=labels)
-    plt.xlabel('Predicted')
-    plt.ylabel('True')
-    plt.title('Confusion Matrix')
+    sns.heatmap(
+        cm, annot=True, fmt="d", cmap="Blues", xticklabels=labels, yticklabels=labels
+    )
+    plt.xlabel("Predicted")
+    plt.ylabel("True")
+    plt.title("Confusion Matrix")
     plt.show()
+
 
 def pil_loader_skip_corrupt(path: str):
     try:

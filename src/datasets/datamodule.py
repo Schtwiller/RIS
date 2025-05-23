@@ -17,7 +17,8 @@ If those functions are named differently, tweak the imports below.
 """
 
 from pathlib import Path
-REPO_ROOT = Path(__file__).resolve().parents[2]   # .../reverse-image-search-model
+
+REPO_ROOT = Path(__file__).resolve().parents[2]  # .../reverse-image-search-model
 DEFAULT_DATA_ROOT = REPO_ROOT / "data" / "processed"
 from src.config import TRAINING
 from torch.utils.data import DataLoader
@@ -30,6 +31,7 @@ from .transforms import (
 
 BATCH_SIZE = TRAINING["batch_size"]
 
+
 class DataModule:
     def __init__(
         self,
@@ -38,15 +40,15 @@ class DataModule:
         num_workers: int = 4,
         pin_memory: bool = True,
     ):
-        self.data_root   = Path(data_root)
-        self.batch_size  = batch_size
+        self.data_root = Path(data_root)
+        self.batch_size = batch_size
         self.num_workers = num_workers
-        self.pin_memory  = pin_memory
+        self.pin_memory = pin_memory
 
         # These will be filled in during .setup()
         self.train_dataset = None
-        self.val_dataset   = None
-        self.test_dataset  = None
+        self.val_dataset = None
+        self.test_dataset = None
 
     # ------------------------------------------------------------------ #
     # main hook – call once from your training script                     #
@@ -54,8 +56,8 @@ class DataModule:
     def setup(self) -> None:
         """Build datasets with the project’s transform pipeline."""
         train_tf = get_train_transforms()
-        val_tf   = get_val_transforms()
-        test_tf  = get_test_transforms()
+        val_tf = get_val_transforms()
+        test_tf = get_test_transforms()
 
         self.train_dataset, self.val_dataset, self.test_dataset = build_datasets(
             self.data_root,
@@ -93,6 +95,7 @@ class DataModule:
             num_workers=self.num_workers,
             pin_memory=self.pin_memory,
         )
+
 
 # ---------------------------------------------------------------------- #
 # Convenience functional API                                             #

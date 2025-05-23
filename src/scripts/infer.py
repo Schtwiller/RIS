@@ -9,8 +9,8 @@ from pathlib import Path
 from PIL import Image
 from torchvision import transforms as T
 
-from src.models.resnet50       import create_resnet50_model
-from src.datasets.datamodule   import DataModule, get_dataloaders
+from src.models.resnet50 import create_resnet50_model
+from src.datasets.datamodule import DataModule, get_dataloaders
 from src.config import IMAGE_SIZE
 
 # ────────────────────────────────────────────────────────────────────────────────
@@ -19,13 +19,14 @@ from src.config import IMAGE_SIZE
 CHECKPOINT_PATH = "checkpoints/resnet50_epoch10.pt"
 
 # Inference on a single image:
-QUERY_IMAGE     = "data/features/NJ_DL1.jpg"
+QUERY_IMAGE = "data/features/NJ_DL1.jpg"
 # Or features on an entire folder (set FOLDER_INFERENCE to True):
 FOLDER_INFERENCE = False
-QUERY_FOLDER     = "sample_queries/"
+QUERY_FOLDER = "sample_queries/"
 
-BATCH_SIZE       = 32  # for folder features
+BATCH_SIZE = 32  # for folder features
 # ────────────────────────────────────────────────────────────────────────────────
+
 
 def load_model():
     # Load the model architecture and weights
@@ -40,21 +41,24 @@ def load_model():
     model.to(device).eval()
     return model, class_names, device
 
+
 @torch.no_grad()
 def preprocess_image(path, tf):
     img = Image.open(path).convert("RGB")
     return tf(img).unsqueeze(0)  # shape (1,3,H,W)
 
+
 def main():
     model, class_names, device = load_model()
 
     # Prepare transform (same as validation)
-    tf = T.Compose([
-        T.Resize((IMAGE_SIZE, IMAGE_SIZE)),
-        T.ToTensor(),
-        T.Normalize([0.485, 0.456, 0.406],
-                    [0.229, 0.224, 0.225]),
-    ])
+    tf = T.Compose(
+        [
+            T.Resize((IMAGE_SIZE, IMAGE_SIZE)),
+            T.ToTensor(),
+            T.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225]),
+        ]
+    )
 
     # Gather images
     if FOLDER_INFERENCE:
@@ -72,6 +76,7 @@ def main():
         pred = logits.argmax(dim=1).item()
         label = class_names[pred]
         print(f"{idx:>3}. {img_path}  ➜  {label}")
+
 
 if __name__ == "__main__":
     main()

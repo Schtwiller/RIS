@@ -17,12 +17,13 @@ import torchvision.transforms.functional as F  # only used as a fallback
 # --------------------------------------------------------------------- #
 from src.config import IMAGE_SIZE, AUGMENTATION
 
-MEAN           = AUGMENTATION["mean"]
-STD            = AUGMENTATION["std"]
-ROTATE_LIMIT   = AUGMENTATION["rotate_limit"]
+MEAN = AUGMENTATION["mean"]
+STD = AUGMENTATION["std"]
+ROTATE_LIMIT = AUGMENTATION["rotate_limit"]
 CONTRAST_LIMIT = AUGMENTATION["contrast_limit"]
-ELASTIC_P      = AUGMENTATION["elastic_p"]
-NOISE_P        = AUGMENTATION["noise_p"]
+ELASTIC_P = AUGMENTATION["elastic_p"]
+NOISE_P = AUGMENTATION["noise_p"]
+
 
 # --------------------------------------------------------------------- #
 # Albumentations <‑‑> torchvision adapter                               #
@@ -33,6 +34,7 @@ class AlbumentationsWrapper:
     transform (i.e. accepts a single PIL.Image or np.ndarray and
     returns a torch.Tensor).
     """
+
     def __init__(self, aug: A.Compose):
         self.aug = aug
 
@@ -44,7 +46,7 @@ class AlbumentationsWrapper:
         """
         # -- Albumentations‑style ------------------------------------------------
         if kwargs:
-            return self.aug(**kwargs)           # returns dict with 'image', etc.
+            return self.aug(**kwargs)  # returns dict with 'image', etc.
 
         # -- torchvision / ImageFolder style ------------------------------------
         if img is None:
@@ -52,7 +54,7 @@ class AlbumentationsWrapper:
         if not isinstance(img, np.ndarray):
             img = np.array(img)
 
-        out = self.aug(image=img)["image"]      # tensor or np.ndarray
+        out = self.aug(image=img)["image"]  # tensor or np.ndarray
         if isinstance(out, np.ndarray):
             out = F.to_tensor(out)
         return out
@@ -79,6 +81,7 @@ def _dynamic_resize(image, **kwargs):
         value=[255, 255, 255],  # white padding
     )
     return padded
+
 
 # --------------------------------------------------------------------- #
 # Augmentation pipelines                                                #
@@ -112,6 +115,7 @@ def _eval_augs():
             ToTensorV2(),
         ]
     )
+
 
 # --------------------------------------------------------------------- #
 # Public API                                                            #

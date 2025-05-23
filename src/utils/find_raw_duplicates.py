@@ -7,7 +7,12 @@ print(len(all_files))
 
 for img in RAW.glob("*.*"):
     name_lower = img.name.lower()
-    if " copy" in name_lower or "copy (" in name_lower or name_lower.endswith("copy.jpg") or "copy" in name_lower.split("_")[-1]:
+    if (
+        " copy" in name_lower
+        or "copy (" in name_lower
+        or name_lower.endswith("copy.jpg")
+        or "copy" in name_lower.split("_")[-1]
+    ):
         to_delete.append(img)
 
 print(f"🧹 Found {len(to_delete)} files to delete.")

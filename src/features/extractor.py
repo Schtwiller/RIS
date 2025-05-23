@@ -11,8 +11,9 @@ from src.config import TRAINING, AUGMENTATION
 
 MEAN = AUGMENTATION["mean"]
 STD = AUGMENTATION["std"]
-_DEFAULT_TF = get_val_transforms()      # uses the central definition
+_DEFAULT_TF = get_val_transforms()  # uses the central definition
 BATCH_SIZE = TRAINING["batch_size"]
+
 
 # ---------- public API ----------------------------------------------- #
 @torch.no_grad()
@@ -39,6 +40,6 @@ def extract_features(
     feats = []
     for batch in loader:
         batch = batch.to(device)
-        out = backbone(batch).flatten(1)      # (B, 2048)
+        out = backbone(batch).flatten(1)  # (B, 2048)
         feats.append(out.cpu())
     return torch.cat(feats).numpy()

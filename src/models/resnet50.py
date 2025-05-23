@@ -11,6 +11,7 @@ from torch.nn.functional import dropout
 from torchvision import models
 from src.config import MODEL
 
+
 def create_resnet50_model(
     num_classes: int,
     *,
@@ -41,11 +42,12 @@ class FeatureExtractor(nn.Module):
     Wraps a trained ResNet-50 so that forward(x) returns the penultimate
     feature vector instead of class logits.
     """
+
     def __init__(self, backbone: nn.Module):
         super().__init__()
         # everything except the final FC
         self.features = nn.Sequential(*list(backbone.children())[:-1])
 
     def forward(self, x):
-        x = self.features(x)            # [B, 2048, 1, 1]
-        return x.view(x.size(0), -1)    # [B, 2048]
+        x = self.features(x)  # [B, 2048, 1, 1]
+        return x.view(x.size(0), -1)  # [B, 2048]

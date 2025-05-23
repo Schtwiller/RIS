@@ -112,7 +112,9 @@ def retrieve_similar_images(
     pred_class = fallback_labels[0]
 
     # -------------------------- embedding ----------------------------- #
-    emb = extract_features(model, [str(img_path)], batch_size=1, device=device)[0]  # (2048,)
+    emb = extract_features(model, [str(img_path)], batch_size=1, device=device)[
+        0
+    ]  # (2048,)
 
     # -------------------------- search -------------------------------- #
     # index_store.query returns (matched_label, distances, paths)

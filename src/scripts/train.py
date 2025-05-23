@@ -18,8 +18,9 @@ import torch
 
 # project imports
 from src.datasets.datamodule import DataModule
-from src.models.resnet50     import create_resnet50_model
-from src.training.trainer    import train_model, evaluate_model
+from src.models.resnet50 import create_resnet50_model
+from src.training.trainer import train_model, evaluate_model
+
 
 def main(args):
     # 1. data
@@ -66,16 +67,22 @@ def main(args):
 
 if __name__ == "__main__":
     p = argparse.ArgumentParser()
-    p.add_argument("--data_root",   default="data/processed")
-    p.add_argument("--epochs",      type=int, default=10)
-    p.add_argument("--batch_size",  type=int, default=32)
-    p.add_argument("--lr",          type=float, default=1e-3)
+    p.add_argument("--data_root", default="data/processed")
+    p.add_argument("--epochs", type=int, default=10)
+    p.add_argument("--batch_size", type=int, default=32)
+    p.add_argument("--lr", type=float, default=1e-3)
     p.add_argument("--num_workers", type=int, default=4)
-    p.add_argument("--device",      default="cuda" if torch.cuda.is_available() else "cpu")
-    p.add_argument("--feature_extract", action="store_true",
-                   help="freeze conv base and train only the final FC layer")
-    p.add_argument("--no_pretrained", action="store_true",
-                   help="start from random weights instead of ImageNet")
+    p.add_argument("--device", default="cuda" if torch.cuda.is_available() else "cpu")
+    p.add_argument(
+        "--feature_extract",
+        action="store_true",
+        help="freeze conv base and train only the final FC layer",
+    )
+    p.add_argument(
+        "--no_pretrained",
+        action="store_true",
+        help="start from random weights instead of ImageNet",
+    )
     p.add_argument("--no_pin_memory", action="store_true")
     p.add_argument("--ckpt_dir", default="checkpoints")
     main(p.parse_args())

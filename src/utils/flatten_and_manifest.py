@@ -2,10 +2,11 @@
 Flatten every sub‑folder in data/raw/ into the raw root and
 rebuild data/manifests/labels.csv. Safe to run multiple times.
 """
+
 import csv, shutil, uuid
 from pathlib import Path
 
-RAW      = Path("../../data/raw")
+RAW = Path("../../data/raw")
 MANIFEST = Path("../../data/raw/labels.csv")
 MANIFEST.parent.mkdir(parents=True, exist_ok=True)
 
