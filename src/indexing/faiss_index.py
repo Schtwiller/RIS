@@ -165,45 +165,31 @@ class ClassIndexStore:
         match_threshold: float = MATCH_THRESHOLD,
     ) -> Tuple[str, np.ndarray, List[str]]:
         """
-        Try searching each label in order. Return:
-            (matched_label, distances, paths)
+        Return (matched_label, squared_distances, paths).
 
-        If none of the labels yield a good match (based on top-1 distance),
-        fall back to the best among them.
+        • Search labels in order.
+        • If top‑1 distance < threshold → return that label.
+        • Otherwise return the label with the *smallest* top‑1 distance.
         """
         vec = vec.astype("float32").reshape(1, -1)
+        labs = [labels] if isinstance(labels, str) else labels
 
-        if isinstance(labels, str):
-            labels = [labels]
+        best = None  # (label, dists, paths)
 
-        best_result = None
-        best_dist = float("inf")
-        best_label = None
-
-        for lab in labels:
-            lab = str(lab)
-            if lab not in self.class_indices:
+        for lab in labs:
+            idx = self.class_indices.get(lab)
+            if idx is None:
                 continue
 
-            try:
-                dists, paths = self.class_indices[lab].search(vec, k)
-                top1_dist = dists[0]
+            dists, paths = idx.search(vec, k)
 
-                if top1_dist < match_threshold:
-                    return lab, dists, paths
+            # first valid result becomes provisional best
+            if best is None or dists[0] < best[1][0]:
+                best = (lab, dists, paths)
 
-                if top1_dist < best_dist:
-                    best_dist = top1_dist
-                    best_result = (dists, paths)
-                    best_label = lab
+            if dists[0] < match_threshold:
+                return lab, dists, paths
 
-            except Exception as e:
-                print(f"[WARN] Failed search on class '{lab}': {e}")
-
-        if best_result:
-            print(f"[Fallback] No match passed threshold {match_threshold:.2f}, "
-                  f"returning closest from '{best_label}' (dist={best_dist:.4f})")
-            return best_label, *best_result
-        else:
-            raise ValueError("No valid indices to search among the given labels.")
-
+        if best:
+            return best
+        raise ValueError("No valid indices among supplied labels.")
