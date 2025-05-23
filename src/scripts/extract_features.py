@@ -1,3 +1,7 @@
+#!/usr/bin/env python3
+"""
+Extract ResNet‑50 embeddings and save them to .npz
+"""
 import argparse
 from pathlib import Path
 import numpy as np
@@ -8,37 +12,38 @@ from src.models.resnet50 import create_resnet50_model
 
 
 def main():
-    parser = argparse.ArgumentParser()
-    parser.add_argument("--data_dir", required=True, help="Path to class-based directory of images")
-    parser.add_argument("--checkpoint", required=True, help="Path to trained model checkpoint")
-    parser.add_argument("--output", required=True, help="Where to save the output .npz file")
-    parser.add_argument("--batch_size", type=int, default=32)
-    parser.add_argument("--num_classes", type=int, required=True)
-    args = parser.parse_args()
+    p = argparse.ArgumentParser()
+    p.add_argument("--data_dir", required=True)
+    p.add_argument("--checkpoint", required=True)
+    p.add_argument("--output", required=True)
+    p.add_argument("--batch_size", type=int, default=32)
+    p.add_argument("--num_classes", type=int, default=None,
+                   help="If omitted, inferred from sub‑folders in data_dir")
+    args = p.parse_args()
 
-    # Collect image paths and class labels
     data_dir = Path(args.data_dir)
     image_paths, labels = [], []
-    for class_dir in sorted(data_dir.iterdir()):
-        if not class_dir.is_dir():
-            continue
-        for img_path in sorted(class_dir.glob("*")):
-            image_paths.append(str(img_path))
-            labels.append(class_dir.name)
+    for cls_dir in sorted(d for d in data_dir.iterdir() if d.is_dir()):
+        for img in sorted(cls_dir.glob("*")):
+            image_paths.append(str(img))
+            labels.append(cls_dir.name)
 
-    # Load model
-    model = create_resnet50_model(num_classes=args.num_classes)
-    model.load_state_dict(torch.load(args.checkpoint, map_location="cpu"))
+    # infer class count if not supplied
+    num_classes = args.num_classes or len(set(labels))
 
-    # Extract features
-    features = extract_features(model, image_paths, batch_size=args.batch_size)
+    # load model backbone
+    model = create_resnet50_model(num_classes=num_classes)
+    ckpt = torch.load(args.checkpoint, map_location="cpu")
+    model.load_state_dict(ckpt, strict=False)   # ignore FC mismatch
 
-    # Save features, paths, and labels
+    feats = extract_features(model, image_paths,
+                             batch_size=args.batch_size)
+
     np.savez(args.output,
-             features=features.astype("float32"),
+             features=feats.astype("float32"),
              paths=np.array(image_paths),
              labels=np.array(labels))
-    print(f"[✓] Saved {len(features)} features to {args.output}")
+    print(f"[✓] saved {len(feats)} embeddings → {args.output}")
 
 
 if __name__ == "__main__":
