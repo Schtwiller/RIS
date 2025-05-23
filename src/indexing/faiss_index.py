@@ -195,10 +195,14 @@ class ClassIndexStore:
                 continue
 
             dists, paths = idx.search(vec, k)
-            if best is None or dists[0] < best[1][0]:
+            # always turn the first entry into a Python float,
+            # even if dists[0] is itself a 1‑element ndarray
+            top1 = float(np.asarray(dists).flat[0])
+
+            if best is None or top1 < float(np.asarray(best[1]).flat[0]):
                 best = (lab, dists, paths)
 
-            if dists[0] < match_threshold:
+            if top1 < match_threshold:
                 return lab, dists, paths
 
         if best:
