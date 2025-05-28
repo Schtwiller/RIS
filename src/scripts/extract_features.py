@@ -33,7 +33,7 @@ def main():
 
     # load model backbone
     model = create_resnet50_model(num_classes=num_classes)
-    ckpt = torch.load(args.checkpoint, map_location="cpu")
+    ckpt = torch.load(args.checkpoint, map_location="cpu", weights_only=False)
     model.load_state_dict(ckpt, strict=False)   # ignore FC mismatch
 
     feats = extract_features(model, image_paths,

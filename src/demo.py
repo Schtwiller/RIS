@@ -140,7 +140,7 @@ def main(argv=None):
     class_names = sorted(store.class_indices.keys())
 
     model = create_resnet50_model(num_classes=len(class_names))
-    ckpt_dict = torch.load(DEMO_CKPT, map_location="cpu")
+    ckpt_dict = torch.load(DEMO_CKPT, map_location="cpu", weights_only=False)
     model.load_state_dict(ckpt_dict, strict=False)
 
     results, pred = retrieve_similar_images(
