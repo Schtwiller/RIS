@@ -40,6 +40,7 @@ def main(args):
     )
 
     # 3. train
+    # TODO: freeze earlier layers for fine-tuning
     model = train_model(
         model,
         dm.train_dataloader(),
@@ -84,5 +85,5 @@ if __name__ == "__main__":
         help="start from random weights instead of ImageNet",
     )
     p.add_argument("--no_pin_memory", action="store_true")
-    p.add_argument("--ckpt_dir", default="checkpoints")
+    p.add_argument("--ckpt_dir", default="artifacts/checkpoints")
     main(p.parse_args())

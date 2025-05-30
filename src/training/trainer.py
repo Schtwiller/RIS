@@ -115,7 +115,7 @@ def train_model(
 
     best_val_loss = float("inf")
     epochs_no_improve = 0
-    early_stop_patience = 3
+    early_stop_patience = TRAINING["patience"]
 
     for epoch in range(1, epochs + 1):
         # ── training loop ───────────────────────────────────────────── #
@@ -159,7 +159,7 @@ def train_model(
             best_val_loss = val_loss
             epochs_no_improve = 0
         else:
-            epochs_no_improve += TRAINING["patience"]
+            epochs_no_improve += 1
 
         if epochs_no_improve >= early_stop_patience:
             if verbose:

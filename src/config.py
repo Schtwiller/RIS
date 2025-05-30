@@ -30,7 +30,11 @@ MODEL = {
 }
 
 # Training settings
-TRAINING = {"epochs": 10, "patience": 3, "batch_size": 32}
+TRAINING = {
+    "epochs": 20,
+    "patience": 5,
+    "batch_size": 32
+}
 
 # Optimizer settings
 OPTIMIZER = {
@@ -41,7 +45,9 @@ OPTIMIZER = {
 }
 
 # Logging and checkpoints
-LOGGING = {"log_dir": os.path.join(os.getcwd(), "logs"), "log_level": "INFO"}
+LOGGING = {
+    "log_dir": os.path.join(os.getcwd(), "logs"), "log_level": "INFO"
+}
 
 CHECKPOINTS = {
     "save_dir": os.path.join(os.getcwd(), "checkpoints"),
