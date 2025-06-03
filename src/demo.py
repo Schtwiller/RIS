@@ -45,6 +45,14 @@ EMB_FILE  = EMB_DIR / "train_embeddings.npz"
 # ------------------------------------------------------------------ #
 # Helpers                                                            #
 # ------------------------------------------------------------------ #
+def nuke_old_artifacts():
+    """Delete checkpoint, embeddings, and FAISS indices if they exist."""
+    for p in [DEMO_CKPT, EMB_FILE]:
+        if p.exists():
+            p.unlink()
+    for f in IDX_DIR.glob("*"):
+        f.unlink()
+
 def sh(cmd: str):
     print(f"[cmd] {cmd}")
     subprocess.run(cmd, shell=True, check=True)
@@ -82,16 +90,26 @@ def main(argv=None):
     ap.add_argument("--batch_size", type=int, default=32)
     ap.add_argument("--top_k", type=int, default=5)
     ap.add_argument("--query", required=True)
+    ap.add_argument("-c", "--checkpoint", type=Path, help="Path to a ResNet-50 .pt checkpoint to load instead of the demo file")
+    ap.add_argument("--fresh", action="store_true", help="Ignore any existing artifacts and rebuild everything from scratch")
     args = ap.parse_args(argv)
 
     processed = Path(args.processed_dir)
+
+    # Decide which checkpoint we’re working with
+    ckpt_path = args.checkpoint if args.checkpoint else DEMO_CKPT
+
+    # fresh start option
+    if args.fresh:
+        print("[fresh] Removing existing artifacts and starting over…")
+        nuke_old_artifacts()
 
     # 1) processed dataset ------------------------------------------------
     if not processed.exists():
         sh("python src/datasets/dataset_builder.py")
 
     # 2) train / reuse checkpoint -----------------------------------------
-    if not DEMO_CKPT.exists():
+    if not ckpt_path.exists():
         sh(
             f"python -m src.scripts.train "
             f"--data_root {processed} "
@@ -101,17 +119,17 @@ def main(argv=None):
         latest = latest_ckpt(Path("checkpoints"))
         if latest is None:
             sys.exit("❌ training produced no checkpoint")
-        latest.rename(DEMO_CKPT)
-        print(f"[✓] checkpoint copied → {DEMO_CKPT}")
+        latest.rename(ckpt_path)
+        print(f"[✓] checkpoint copied → {ckpt_path}")
     else:
-        print(f"[skip] using existing checkpoint {DEMO_CKPT}")
+        print(f"[skip] using existing checkpoint {ckpt_path}")
 
     # 3) extract embeddings ----------------------------------------------
     if not EMB_FILE.exists():
         sh(
             f"python -m src.scripts.extract_features "
             f"--data_dir {processed/'train'} "
-            f"--checkpoint {DEMO_CKPT} "
+            f"--checkpoint {ckpt_path} "
             f"--output {EMB_FILE}"
         )
     else:
@@ -124,7 +142,9 @@ def main(argv=None):
         for lab, idx in idxs.items():
             faiss.write_index(idx, str(IDX_DIR / f"{lab}.index"))
             paths = [p for p, l in zip(data["paths"], data["labels"]) if l == lab]
-            pickle.dump(paths, open(IDX_DIR / f"{lab}.paths", "wb"))
+            paths_file = IDX_DIR / f"{lab}.paths"
+            with paths_file.open("wb") as pf:
+                pickle.dump(paths, pf)
         print(f"[✓] wrote {len(idxs)} indices → {IDX_DIR}")
     else:
         print(f"[skip] indices already present")
@@ -140,7 +160,7 @@ def main(argv=None):
     class_names = sorted(store.class_indices.keys())
 
     model = create_resnet50_model(num_classes=len(class_names))
-    ckpt_dict = torch.load(DEMO_CKPT, map_location="cpu", weights_only=False)
+    ckpt_dict = torch.load(ckpt_path, map_location="cpu", weights_only=False)
     model.load_state_dict(ckpt_dict, strict=False)
 
     results, pred = retrieve_similar_images(
