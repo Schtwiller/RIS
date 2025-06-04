@@ -159,7 +159,7 @@ def train_model(
             best_val_loss = val_loss
             epochs_no_improve = 0
         else:
-            epochs_no_improve += 1
+            epochs_no_improve += TRAINING["patience"]
 
         if epochs_no_improve >= early_stop_patience:
             if verbose:
