@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 """
 Stages 1 and 2 - extracting 2048-D ResNet features with PCA-128 and HDBSCAN
 Outputs:
