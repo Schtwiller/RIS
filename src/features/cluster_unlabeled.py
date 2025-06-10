@@ -36,6 +36,7 @@ def main():
 
     # 3. Extract 2048-D
     feats = extract_features(model, image_paths, batch_size=TRAINING["batch_size"])
+    (out_dir / "embeddings").mkdir(parents=True, exist_ok=True) # ensure sub‑dir exists
     np.savez(out_dir / "embeddings/unlabeled_embeddings.npz",
              features=feats, paths=np.array(image_paths))
 

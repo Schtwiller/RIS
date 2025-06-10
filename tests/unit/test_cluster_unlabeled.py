@@ -17,6 +17,7 @@ def dummy_images(tmp_path):
 
 def test_cluster_unlabeled(monkeypatch, tmp_path, dummy_images):
     # --- monkey‑patch heavy modules -----------------------------------------
+    monkeypatch.chdir(tmp_path)
     import src.config as CFG
     CFG.EMBEDDING["pca_dim"] = 8          # shrink for speed
     CFG.CLUSTERING["min_cluster_size"] = 2
