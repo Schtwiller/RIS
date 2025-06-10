@@ -2,7 +2,7 @@ import sys
 from pathlib import Path
 sys.path.append(str(Path(__file__).resolve().parents[2]))  # allow imports from src/
 
-import numpy as np, pandas as pd, pytest, shutil, types, pathlib, builtins
+import numpy as np, pandas as pd, pytest, types, pathlib
 from PIL import Image
 from importlib import reload
 
@@ -30,13 +30,13 @@ def test_cluster_unlabeled(monkeypatch, tmp_path, dummy_images):
                         fake_extract, raising=True)
 
     # dummy model builder (identity)
-    import torch, torch.nn as nn
+    import torch.nn as nn
     def fake_model(*a, **k): return nn.Identity()
     monkeypatch.setattr("src.models.resnet50.create_resnet50_model",
                         fake_model, raising=True)
 
     # import & run
-    from src.features import cluster_unlabeled as cu
+    from src.clustering import cluster_unlabeled as cu
     reload(cu)  # ensure patching visible
     monkeypatch.setattr(cu, "parse_args",
                         lambda: types.SimpleNamespace(
