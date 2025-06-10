@@ -11,6 +11,7 @@ IMAGE_SIZE = 512  # Default size of images to resize
 RAW_DATA_PATH = Path(__file__).parents[2] / "data" / "raw"
 PROCESSED_DATA_PATH = Path(__file__).parents[2] / "data" / "processed"
 LABELS_CSV = os.path.join(RAW_DATA_PATH, "labels.csv")
+TRAIN_VAL_SPLIT = 0.7
 
 # Augmentation parameters
 AUGMENTATION = {
@@ -25,7 +26,7 @@ AUGMENTATION = {
 # Model settings
 MODEL = {
     "use_pretrained": True,
-    "model_name": "resnet18",  # You can change this to other models (e.g., "efficientnet")
+    "model_name": "resnet50",  # You can change this to other models (e.g., "efficientnet")
     "dropout_rate": 0.5,
 }
 
@@ -61,5 +62,22 @@ INDEXING = {
     "n_fallback": 3,
 }
 
-# Training/Validation Split
-TRAIN_VAL_SPLIT = 0.7
+# Feature / PCA settings
+EMBEDDING = {
+    "pca_dim": 5,
+    "min_samples": 5,
+    "metric": "euclidean"
+}
+
+# HDBSCAN settings
+CLUSTERING = {
+    "min_cluster_size": 5,
+    "min_samples": 5,      # usually = min_cluster_size
+    "metric": "euclidean",
+}
+
+# Group‑of‑clusters settings
+GROUPING = {
+    "trigger_clusters": 500,  # if len(unique_clusters) > this  ⇒ run grouping
+    "n_super": 100,           # K for k‑means
+}
